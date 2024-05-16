@@ -1,0 +1,117 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 10);
+}
+
+/* -----------------네비바 css----------------- */
+.Header_logo img {
+  margin-right: 0px;
+  height: 40px;
+  object-fit: contain;
+  margin-left: 10px;
+}
+
+.Header_followtext {
+  position: absolute;
+  top: -5px;
+  left: 90px;
+  /* 왼쪽으로부터 30px 떨어진 위치에 고정 */
+  display: flex;
+  align-items: center;
+}
+
+/*마우스를 올렸을 때 반응*/
+.Header_followtext:hover {
+  color: #c98aff;
+  cursor: pointer;
+}
+
+.Header_findtext {
+  position: absolute;
+  top: -5px;
+  left: 180px;
+  /* 왼쪽으로부터 30px 떨어진 위치에 고정 */
+  display: flex;
+  align-items: center;
+}
+
+/*마우스를 올렸을 때 반응*/
+.Header_findtext:hover {
+  color: #c98aff;
+  cursor: pointer;
+}
+
+.Header_dark {
+  position: absolute;
+  display: flex;
+  top: 5px;
+  right: 110px;
+  align-items: center;
+}
+
+.Header_noticeicon {
+  position: absolute;
+  display: flex;
+  top: 5px;
+  right: 60px;
+  align-items: center;
+}
+
+.Header_ava {
+  position: absolute;
+  display: flex;
+  top: 5px;
+  right: 10px;
+  align-items: center;
+}
+
+.Header_input {
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  top: 5px;
+  margin-left: 37%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 20%;
+}
+
+
+/* -----------------팝업 css----------------- */
+.popup {
+  display: flex;
+  /* Flexbox를 사용하여 항목들을 가로로 정렬 */
+  position: absolute;
+  width: 230px;
+  /* 원하는 너비로 조정 */
+  padding: 10px;
+  background-color: var(--background-color);
+  /* 다크모드 테마에 불투명도 적용 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  top: 100%;
+  /* '해외축구' 텍스트 바로 아래에 위치하도록 설정 */
+  left: 0;
+  /* 왼쪽 정렬 */
+  justify-content: center;
+  /* 내용물을 수평 가운데 정렬 */
+  align-items: center;
+  /* 내용물을 수직 가운데 정렬 */
+}
+
+.popup div {
+  padding: 8px;
+}
+
+/* 마우스를 올렸을 때 글자색 변경 */
+.popup div:hover {
+  color: #c98aff;
+  /* 예시로 빨간색을 사용했습니다. 원하는 색상으로 변경하세요 */
+}

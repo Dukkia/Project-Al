@@ -1,0 +1,108 @@
+/* 컨테이너 스타일 */
+.schedule-container {
+    margin: 50px;
+}
+
+
+/* -----------------리그 버튼 css----------------- */
+/* 버튼 컨테이너 스타일 */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* 리그 버튼 스타일 */
+.league-button {
+    display: flex;
+    justify-content: center;
+    /* 가로 가운데 정렬 */
+    align-items: center;
+    /* 세로 가운데 정렬 */
+    width: 200px;
+    height: 55px;
+    background-color: #252527;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: 1px solid #575757;
+}
+
+.league-button:hover {
+    background-color: #303134;
+    /* 호버 시 색상 변경 */
+}
+
+
+/* -----------------팀 순위 테이블 css----------------- */
+/* 테이블 스타일 */
+.record-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 1000px;
+}
+
+/* 테이블 헤더 스타일 */
+thead {
+    background-color: var(--background-color);
+    text-align: left;
+    /* 팀 열을 왼쪽 정렬 */
+}
+
+/* 테이블 내의 모든 행 스타일 */
+tbody tr {
+    background-color: var(--background-color);
+    border-top: 0.1px solid #575757;
+}
+
+/* 챔피언스 리그 파란색으로 설정 */
+tbody tr:nth-child(n+1):nth-child(-n+4) {
+    border-left: 4px solid #4285F4;
+}
+
+/* 유로파 리그 초록색으로 설정 */
+tbody tr:nth-child(n+5):nth-child(-n+6) {
+    border-left: 4px solid #FA7B17;
+}
+
+/* 강등 직행 회색으로 설정 */
+tbody tr:nth-child(n+18):nth-child(-n+20) {
+    border-left: 4px solid #EA4335;
+}
+
+/* 팀 열을 제외한 테이블 셀 스타일 */
+td:not(:nth-child(2)),
+th:not(:nth-child(2)) {
+    padding: 10px;
+    text-align: center;
+    /* 테이블 내용 가운데 정렬 */
+}
+
+/* 팀 로고 스타일 */
+.team-logo {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    /* 상하 가운데 정렬 */
+}
+
+.team-logo img {
+    margin-right: 5px;
+    /* 로고와 팀 이름 사이의 간격 조정 */
+}
+
+/* 호버링 효과 */
+tbody tr:hover {
+    background-color: #303134;
+}
+
+
+/* -----------------로딩 스피너 위치----------------- */
+.record-loading {
+    margin-top: 20px;
+}
