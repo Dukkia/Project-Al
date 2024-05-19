@@ -2,7 +2,7 @@ const express = require('express');
 const request = require('request');
 
 const app = express();
-const port = 5000;
+const port = 3000;
 
 const client_id = 'tl35fbwl8i';
 const client_secret = 'R9VMF466TYFA2enPzk7eOhQuRx1XJTJYveUSnhLv';

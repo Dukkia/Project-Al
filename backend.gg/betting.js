@@ -11,7 +11,7 @@ const headers = {
   'X-Api-Key': '87b519e5-4342-4062-be8b-30df3aeab836'
 };
 
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+const allowedOrigins = ['http://localhost:5173'];
 
 app.use(
   cors({

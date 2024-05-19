@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const fs = require('fs').promises;
-const cache = require('./cache');
+const cache = require('../cache');
 const app = express();
 const cors = require('cors');
 
@@ -17,7 +17,7 @@ app.use(cors({
 app.get('/', async (req, res) => {
     try {
         // 절대 경로로 파일 경로 지정
-        const filePath = path.join(__dirname, '..', 'data.gg', 'record.json'); // 상위 디렉토리로 이동 후 data.gg로 이동
+        const filePath = path.join(__dirname, '../..', 'data.gg', 'record.json'); // 상위 디렉토리로 이동 후 data.gg로 이동
         console.log('Reading file from:', filePath); // 파일 경로 로그 출력
         const data = await fs.readFile(filePath, 'utf8');
         let jsonData = JSON.parse(data);
