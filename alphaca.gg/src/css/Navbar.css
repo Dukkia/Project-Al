@@ -24,6 +24,7 @@
   /* 왼쪽으로부터 30px 떨어진 위치에 고정 */
   display: flex;
   align-items: center;
+  
 }
 
 /*마우스를 올렸을 때 반응*/
@@ -83,6 +84,13 @@
   height: 20%;
 }
 
+.Header_global {
+  position: absolute;
+  display: flex;
+  top: 5px;
+  right: 160px;
+  align-items: center;
+}
 
 /* -----------------팝업 css----------------- */
 .popup {
@@ -113,5 +121,41 @@
 /* 마우스를 올렸을 때 글자색 변경 */
 .popup div:hover {
   color: #c98aff;
-  /* 예시로 빨간색을 사용했습니다. 원하는 색상으로 변경하세요 */
+}
+
+
+/* ----------------- 언어선택 팝업 css----------------- */
+.language-popup {
+  position: absolute;
+  width: 90px;
+  top: 60px;
+  right: 10px;
+  background-color: var(--background-color);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.language-popup div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.language-popup div:hover {
+  color: #c98aff;
+}
+
+/* ----------------- 언어별 네비바 css----------------- */
+.Header_findtext.language-ja {
+  left: 180px;
+}
+
+.Header_findtext.language-en {
+  left: 190px;
+}
+
+/* ----------------- 일본어 팝업 사이즈 조절 css----------------- */
+.language-ja .popup {
+  width: 400px;
 }

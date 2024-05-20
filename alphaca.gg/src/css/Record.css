@@ -65,9 +65,14 @@ tbody tr:nth-child(n+1):nth-child(-n+4) {
     border-left: 4px solid #4285F4;
 }
 
-/* 유로파 리그 초록색으로 설정 */
-tbody tr:nth-child(n+5):nth-child(-n+6) {
+/* 유로파 리그 주황색으로 설정 */
+tbody tr:nth-child(n+5):nth-child(-n+5) {
     border-left: 4px solid #FA7B17;
+}
+
+/* 컨퍼런스 리그 초록색으로 설정 */
+tbody tr:nth-child(n+6):nth-child(-n+6) {
+    border-left: 4px solid #004D00;
 }
 
 /* 강등 직행 회색으로 설정 */

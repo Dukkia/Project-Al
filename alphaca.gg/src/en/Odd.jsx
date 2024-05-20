@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import './Odd.css';
+import '../css/Odd.css';
 import { MoonLoader } from 'react-spinners';
 
 function Odd() {
@@ -12,7 +12,7 @@ function Odd() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3204');
+        const response = await axios.get('http://localhost:8204');
         const games = response.data.sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
 
         // 날짜별로 그룹화

@@ -1,11 +1,11 @@
 const path = require('path');
 const express = require('express');
 const fs = require('fs').promises;
-const cache = require('../cache');
+const cache = require('./cache');
 const app = express();
 const cors = require('cors');
 
-const port = 3202;
+const port = 4402;
 
 const allowedOrigins = ['http://localhost:5173'];
 
@@ -17,13 +17,13 @@ app.use(cors({
 app.get('/', async (req, res) => {
     try {
         // 절대 경로로 파일 경로 지정
-        const filePath = path.join(__dirname, '../..', 'data.gg', 'record.json'); // 상위 디렉토리로 이동 후 data.gg로 이동
+        const filePath = path.join(__dirname, '../../..', 'data.gg', 'record.json'); // 상위 디렉토리로 이동 후 data.gg로 이동
         console.log('Reading file from:', filePath); // 파일 경로 로그 출력
         const data = await fs.readFile(filePath, 'utf8');
         let jsonData = JSON.parse(data);
 
-        // contestantName 번역 작업 추가
-        jsonData = await translateContestantNames(jsonData);
+        // contestantName 캐시 작업 추가
+        jsonData = await cacheContestantNames(jsonData);
 
         // JSON 형식의 데이터를 그대로 반환
         res.json(jsonData);
@@ -36,18 +36,20 @@ app.get('/', async (req, res) => {
     }
 });
 
-
-async function translateContestantNames(data) {
+async function cacheContestantNames(data) {
     try {
         const contestants = data.stage[0].division[0].ranking;
 
         for (const contestant of contestants) {
-            contestant.contestantClubName = await cache.translateText(contestant.contestantClubName);
+            const cachedTranslation = cache.getCachedTranslation(contestant.contestantClubName);
+            if (cachedTranslation) {
+                contestant.contestantClubName = cachedTranslation;
+            }
         }
 
         return data;
     } catch (error) {
-        console.error('Error translating contestant names:', error);
+        console.error('Error caching contestant names:', error);
         return data;
     }
 }

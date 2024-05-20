@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Schedule.css';
+import '../css/Schedule.css';
 import { MoonLoader } from 'react-spinners';
 
 function formatDate(dateString) {
@@ -34,7 +34,7 @@ function Schedule() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios.get('http://localhost:3201/');
+        const result = await axios.get('http://localhost:8201/');
         setData(result.data);
         setLoading(false);
       } catch (error) {
