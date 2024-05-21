@@ -83,7 +83,7 @@ function Record() {
 
 
 
-          <h3><span style={{ color: '#619DFF' }}>2023/24 시즌</span> 팀 순위</h3>
+          <h4><span style={{ color: '#619DFF' }}>2023/24 시즌</span> 팀 순위</h4>
           <table className="record-table">
             <thead>
               <tr>
