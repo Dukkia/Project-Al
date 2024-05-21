@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme, GlobalStyle } from "./Theme";
 import { Avatar, IconButton } from "@mui/material";
@@ -36,7 +36,7 @@ const translations = {
     record: "Records/Rankings",
     betting: "Betting"
   },
-  zhcn: { // 중국어 추가
+  zhcn: {
     home: "国内足球",
     abroad: "海外足球",
     schedule: "日程/结果",
@@ -50,6 +50,16 @@ function Navbar() {
   const [isHovering, setIsHovering] = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const [language, setLanguage] = useState('ko');
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+    } else {
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
 
   const toggleDarkMode = () => setDarkMode((prevDarkMode) => !prevDarkMode);
   const handleMouseEnter = useCallback(() => setIsHovering(true), []);

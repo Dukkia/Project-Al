@@ -6,10 +6,11 @@
 
 /* -----------------리그 버튼 css----------------- */
 /* 버튼 컨테이너 스타일 */
-.button-container {
+.box-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 /* 리그 버튼 스타일 */
@@ -21,20 +22,40 @@
     /* 세로 가운데 정렬 */
     width: 200px;
     height: 55px;
-    background-color: #252527;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    color: var(--color);
+
+}
+
+/* 라이트모드 리그 버튼 효과 */
+.light-mode .league-button {
+    background-color: #F7F7F9;
+    border: 1px solid #B4B5C0;
+}
+
+/* 호버 시 색상 변경 */
+.light-mode .league-button:hover {
+    background-color: #ccc;
+
+}
+
+/* 다크 모드 리그 버튼 효과 */
+.dark-mode .league-button {
+    background-color: #303134;
+    color: #FFFFFF;
     border: 1px solid #575757;
 }
 
-.league-button:hover {
-    background-color: #303134;
-    /* 호버 시 색상 변경 */
+/* 호버 시 색상 변경 */
+.dark-mode .league-button:hover {
+    background-color: #252527;
 }
+
 
 
 /* -----------------팀 순위 테이블 css----------------- */
@@ -45,6 +66,7 @@
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     width: 1000px;
+    color: var(--color);
 }
 
 /* 테이블 헤더 스타일 */
@@ -72,7 +94,7 @@ tbody tr:nth-child(n+5):nth-child(-n+5) {
 
 /* 컨퍼런스 리그 초록색으로 설정 */
 tbody tr:nth-child(n+6):nth-child(-n+6) {
-    border-left: 4px solid #004D00;
+    border-left: 4px solid #00D26A;
 }
 
 /* 강등 직행 회색으로 설정 */
@@ -101,11 +123,15 @@ th:not(:nth-child(2)) {
     /* 로고와 팀 이름 사이의 간격 조정 */
 }
 
-/* 호버링 효과 */
-tbody tr:hover {
-    background-color: #303134;
+/* 라이트모드 호버 효과 */
+.light-mode tbody tr:hover {
+    background-color: #ccc;
 }
 
+/* 다크모드 호버 효과 */
+.dark-mode tbody tr:hover {
+    background-color: #252527;
+}
 
 /* -----------------로딩 스피너 위치----------------- */
 .record-loading {

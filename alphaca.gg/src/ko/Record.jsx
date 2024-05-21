@@ -54,11 +54,11 @@ function Record() {
     <div className="schedule-container">
       {loading ? (
         <div className="record-loading">
-        <MoonLoader color={'white'} loading={loading} size={40} />
+        <MoonLoader color={'#c98aff'} loading={loading} size={40} />
       </div>
       ) : (
         <>
-          <div className="button-container">
+          <div className="box-container">
             <button className="league-button">
               <img src="https://imgsports.pstatic.net/images/2020/pc/common/league/epl_on.png" alt="프리미어리그 로고" className="league-logo" />
               <span>　프리미어리그</span>

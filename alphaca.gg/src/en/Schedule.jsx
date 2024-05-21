@@ -89,7 +89,7 @@ function Schedule() {
     <div className="container">
       {loading ? (
         <div className="schedule-loading">
-          <MoonLoader color={'white'} loading={loading} size={40} />
+          <MoonLoader color={'#c98aff'} loading={loading} size={40} />
         </div>
       ) : (
         <>

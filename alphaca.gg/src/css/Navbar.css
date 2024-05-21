@@ -3,51 +3,72 @@
   justify-content: space-between;
   align-items: center;
   padding: 1px;
-  width: 100%;
+  width: 99%;
+  height: 50px;
   top: 0;
   z-index: 999;
+  position: fixed; 
   box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 10);
+}
+
+.light-mode .navbar {
+  background-color: #F1F1F1;
+}
+
+.dark-mode .navbar {
+  background-color: #2C2D33;
 }
 
 /* -----------------네비바 css----------------- */
 .Header_logo img {
   margin-right: 0px;
+  margin-top:5px;
   height: 40px;
   object-fit: contain;
   margin-left: 10px;
 }
 
+/* 네비바 글씨 */
 .Header_followtext {
   position: absolute;
-  top: -5px;
+  top: -6px;
   left: 90px;
-  /* 왼쪽으로부터 30px 떨어진 위치에 고정 */
   display: flex;
   align-items: center;
-  
 }
 
-/*마우스를 올렸을 때 반응*/
+.Header_findtext {
+  position: absolute;
+  top: -6px;
+  left: 180px;
+  display: flex;
+  align-items: center;
+}
+
+/* 다크모드 네비바 글씨 색상 */
+.light-mode .Header_followtext,
+.light-mode .Header_findtext {
+  color: #551A8B;
+}
+
+.dark-mode .Header_followtext,
+.dark-mode .Header_findtext {
+  color: #F1F1F1;
+}
+
+/* 마우스를 올렸을 때 반응 */
 .Header_followtext:hover {
   color: #c98aff;
   cursor: pointer;
 }
 
-.Header_findtext {
-  position: absolute;
-  top: -5px;
-  left: 180px;
-  /* 왼쪽으로부터 30px 떨어진 위치에 고정 */
-  display: flex;
-  align-items: center;
-}
-
-/*마우스를 올렸을 때 반응*/
 .Header_findtext:hover {
   color: #c98aff;
   cursor: pointer;
 }
 
+
+/* -----------------아이콘 css----------------- */
 .Header_dark {
   position: absolute;
   display: flex;
@@ -95,27 +116,38 @@
 /* -----------------팝업 css----------------- */
 .popup {
   display: flex;
-  /* Flexbox를 사용하여 항목들을 가로로 정렬 */
   position: absolute;
   width: 230px;
-  /* 원하는 너비로 조정 */
   padding: 10px;
-  background-color: var(--background-color);
-  /* 다크모드 테마에 불투명도 적용 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   top: 100%;
-  /* '해외축구' 텍스트 바로 아래에 위치하도록 설정 */
   left: 0;
-  /* 왼쪽 정렬 */
   justify-content: center;
-  /* 내용물을 수평 가운데 정렬 */
   align-items: center;
-  /* 내용물을 수직 가운데 정렬 */
 }
 
 .popup div {
   padding: 8px;
+}
+
+/* 다크모드 네비바 팝업창 글자 색상 css */
+
+.light-mode .popup div {
+  color: #2C2D33;
+}
+
+.dark-mode .popup div {
+  color: #F1F1F1;
+}
+
+/* 다크모드 네비바 팝업창 바탕 색상 */
+.light-mode .popup {
+  background-color: #f1f1f1;
+}
+
+.dark-mode .popup {
+  background-color: #2C2D33;
 }
 
 /* 마우스를 올렸을 때 글자색 변경 */
@@ -123,28 +155,35 @@
   color: #c98aff;
 }
 
-
 /* ----------------- 언어선택 팝업 css----------------- */
 .language-popup {
   position: absolute;
   width: 90px;
   top: 60px;
   right: 10px;
-  background-color: var(--background-color);
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
+.dark-mode .language-popup {
+  background-color: #2C2D33;
+}
+
+.light-mode .language-popup {
+  background-color: #F1F1F1;
+}
+
 .language-popup div {
-  padding: 10px;
+  padding: 8px;
   cursor: pointer;
 }
 
 .language-popup div:hover {
   color: #c98aff;
 }
+
 
 /* ----------------- 언어별 네비바 css----------------- */
 .Header_findtext.language-ja {
@@ -155,7 +194,11 @@
   left: 190px;
 }
 
-/* ----------------- 일본어 팝업 사이즈 조절 css----------------- */
+/* ----------------- 언어별 팝업 사이즈 조절 css----------------- */
 .language-ja .popup {
-  width: 400px;
+  width: 350px;
+}
+
+.language-en .popup {
+  width: 350px;
 }
