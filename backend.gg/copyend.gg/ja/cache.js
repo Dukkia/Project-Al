@@ -2,7 +2,7 @@
 const axios = require('axios');
 const NodeCache = require('node-cache');
 
-const translationCache = new NodeCache({ stdTTL: 86400 });
+const translationCache = new NodeCache({ stdTTL: 2592000 });
 
 const translateText = async (text) => {
   const cachedTranslation = translationCache.get(text);

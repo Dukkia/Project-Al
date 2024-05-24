@@ -16,7 +16,7 @@ app.use(cors({
 }));
 
 // 캐시 생성 (유효 시간을 600초로 설정)
-const cache = new NodeCache({ stdTTL: 86400 });
+const cache = new NodeCache({ stdTTL: 2592000 });
 
 // 캐시 함수 정의
 const getFromCache = (key) => {
