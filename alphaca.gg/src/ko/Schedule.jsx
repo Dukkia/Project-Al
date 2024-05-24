@@ -86,7 +86,7 @@ function Schedule() {
   };
 
   return (
-    <div className="container">
+    <div className="schedulebox">
       {loading ? (
         <div className="schedule-loading">
           <MoonLoader color={'#c98aff'} loading={loading} size={40} />
@@ -114,7 +114,9 @@ function Schedule() {
                   </thead>
                   {groupedData[date].map((item, index) => (
                     <tr key={index}>
-                      <td style={{ textAlign: 'left', fontSize: 'small', fontWeight: 'bold', color: 'white' }}> {formatTime(item.Time)}</td>
+                      <td style={{ textAlign: 'left', fontSize: 'small', fontWeight: 'bold', verticalAlign: 'middle' }}>
+                        {formatTime(item.Time)}
+                      </td>
                       <td className="end" style={{ textAlign: 'left' }}>{item.Place}</td>
 
                       <td>

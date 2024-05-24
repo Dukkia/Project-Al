@@ -1,4 +1,4 @@
-.container {
+.schedulebox {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -15,13 +15,14 @@
 .button-container {
     text-align: center;
     border-bottom: 1px solid #454548;
+
 }
 
 .month-button {
     margin: 5px;
-    margin-left: 25px;
+    margin-left: 5px;
     /* 버튼 간 간격 설정 */
-    margin-right: 25px;
+    margin-right: 5px;
     /* 버튼 간 간격 설정 */
     background-color: var(--background-color);
     color: var(--background-color);
@@ -29,7 +30,7 @@
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
-    width: 60px;
+    width: 80px;
     /* 버튼의 너비를 고정 */
     height: 40px;
     /* 버튼의 높이를 고정 */
@@ -71,16 +72,16 @@
 /* -----------------6/7월 버튼 css----------------- */
 .death-button {
     margin: 5px;
-    margin-left: 15px;
+    margin-left: 5px;
     /* 버튼 간 간격 설정 */
-    margin-right: 15px;
+    margin-right: 5px;
     /* 버튼 간 간격 설정 */
     background-color: var(--background-color);
     color: #7F7F81;
     border: none;
     border-radius: 5px;
     display: inline-block;
-    width: 60px;
+    width: 80px;
     /* 버튼의 너비를 고정 */
     height: 40px;
     /* 버튼의 높이를 고정 */
@@ -107,6 +108,11 @@
     background-color: #454548;
 }
 
+.light-mode .match-table {
+    background-color: #F7F7F9;
+    border: 1px solid #B4B5C0;
+}
+
 
 /* -----------------테이블 간격 조절css----------------- */
 .match-table th {
@@ -114,6 +120,10 @@
     width: 15%;
     background-color: #303033;
     height: 30px;
+}
+
+.light-mode .match-table th {
+    background-color: #ccc;
 }
 
 .match-table td:nth-child(1) {
@@ -163,12 +173,16 @@
     /* 보더 추가 */
     border-radius: 5px;
     cursor: pointer;
-    width: 50px;
+    width: 60px;
     height: 30px;
     font-size: 0.8rem;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     /* 색상 변화를 부드럽게 만듦 */
 
+}
+
+.light-mode .record-button {
+    border: 1px solid #4D4D4D;
 }
 
 .record-button:hover {
@@ -177,6 +191,9 @@
     /* 호버 시 보더 색상 변경 */
 }
 
+.light-mode .record-button:hover {
+    background-color: #ccc;
+}
 
 /* -----------------종료/예정 글씨 css----------------- */
 .will {
