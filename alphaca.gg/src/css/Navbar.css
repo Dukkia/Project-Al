@@ -32,7 +32,7 @@
 .Header_followtext {
   position: absolute;
   top: -6px;
-  left: 90px;
+  left: 160px;
   display: flex;
   align-items: center;
 }
@@ -40,7 +40,7 @@
 .Header_findtext {
   position: absolute;
   top: -6px;
-  left: 180px;
+  left: 250px;
   display: flex;
   align-items: center;
 }
@@ -187,11 +187,11 @@
 
 /* ----------------- 언어별 네비바 css----------------- */
 .Header_findtext.language-ja {
-  left: 180px;
+  left: 240px;
 }
 
 .Header_findtext.language-en {
-  left: 190px;
+  left: 250px;
 }
 
 /* ----------------- 언어별 팝업 사이즈 조절 css----------------- */

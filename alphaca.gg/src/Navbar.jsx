@@ -12,7 +12,7 @@ import {
 import "./css/Navbar.css";
 
 const twitchLogoSrc =
-  "https://www.pngplay.com/wp-content/uploads/12/Twitch-Logo-Transparent-Image.png";
+  "https://gw.mdstech.co.kr/ekp/inc/file/fileView?fileUrl=/banner/image/2022/11/27&fileName=5bbeecea-846e-4439-a98c-4cd471a33a94";
 
 const translations = {
   ko: {
