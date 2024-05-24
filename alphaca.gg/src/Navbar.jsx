@@ -36,13 +36,6 @@ const translations = {
     record: "Records/Rankings",
     betting: "Betting"
   },
-  zhcn: {
-    home: "国内足球",
-    abroad: "海外足球",
-    schedule: "日程/结果",
-    record: "记录/排名",
-    betting: "投注"
-  }
 };
 
 function Navbar() {
@@ -74,7 +67,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="Header_logo">
-        <Link to="/">
+        <Link to={language === 'ko' ? '/' : `/${language}`}>
           <img src={twitchLogoSrc} alt="Logo" />
         </Link>
       </div>
@@ -131,7 +124,6 @@ function Navbar() {
           <div className="language-popup">
             <div onClick={() => changeLanguage('ko')}>한국어</div>
             <div onClick={() => changeLanguage('ja')}>日本語</div>
-            <div onClick={() => changeLanguage('zhcn')}>简体中文</div>
             <div onClick={() => changeLanguage('en')}>English</div>
           </div>
         )}

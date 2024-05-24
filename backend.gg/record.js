@@ -8,7 +8,7 @@ const cors = require('cors'); // cors 모듈 추가
 const port = 3202;
 
 // 허용된 오리진 설정
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+const allowedOrigins = ['http://localhost:5173'];
 
 // cors 미들웨어 추가
 app.use(cors({
