@@ -7,7 +7,7 @@ const htmlContent = require('.././htmlContent'); // htmlContent.js 파일에서 
 const app = express();
 const port = 8200;
 
-const cache = new NodeCache({ stdTTL: 600 }); // 캐시 TTL(유효 시간)을 600초(10분)로 설정
+const cache = new NodeCache({ stdTTL: 86400 }); // 캐시 TTL(유효 시간)을 600초(10분)로 설정
 
 // 허용된 오리진 설정
 const allowedOrigins = ['http://localhost:5173'];
