@@ -21,8 +21,9 @@ const translateText = async (text) => {
       },
       {
         headers: {
-          'X-NCP-APIGW-API-KEY-ID': 'tl35fbwl8i',
-          'X-NCP-APIGW-API-KEY': 'R9VMF466TYFA2enPzk7eOhQuRx1XJTJYveUSnhLv',
+          'X-NCP-APIGW-API-KEY-ID': '70gknw92gy',
+          'X-NCP-APIGW-API-KEY': 'Y5VjpEoL8bIFsKzOAftW7bR54V7WiMCGntMPuJQl',
+          
           'Content-Type': 'application/json'
         }
       }

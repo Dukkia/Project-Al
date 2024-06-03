@@ -28,8 +28,8 @@ const setToCache = (key, value) => {
 };
 
 const url = 'https://naveropenapi.apigw.ntruss.com/web-trans/v1/translate';
-const apiKeyId = 'tl35fbwl8i';
-const apiKey = 'R9VMF466TYFA2enPzk7eOhQuRx1XJTJYveUSnhLv';
+const apiKeyId = '70gknw92gy';
+const apiKey = 'Y5VjpEoL8bIFsKzOAftW7bR54V7WiMCGntMPuJQl';
 
 // 버튼을 클릭할 때마다 번역 요청을 보내는 엔드포인트
 app.get('/', async (req, res) => {

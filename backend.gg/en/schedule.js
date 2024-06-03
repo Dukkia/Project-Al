@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const moment = require('moment-timezone');
-const NodeCache = require('node-cache');
+const cache = require('./cache'); // cache 모듈 불러오기
 const app = express();
 const cors = require('cors');
 
@@ -14,12 +14,10 @@ app.use(cors({
     methods: ['GET']
 }));
 
-const cache = new NodeCache({ stdTTL: 2592000 }); // 캐시 TTL(유효 시간)을 2592000초(30일)로 설정
-
 app.get('/', async (req, res) => {
     try {
         // 캐시에 데이터가 있는지 확인
-        const cachedData = cache.get('formattedData');
+        const cachedData = cache.translationCache.get('formattedData');
 
         if (cachedData) {
             console.log('Data found in cache');
@@ -27,7 +25,7 @@ app.get('/', async (req, res) => {
             return;
         }
 
-        // 캐시에 데이터가 없는 경우, 외부 API에서 데이터를 가져와서 포맷팅
+        // 외부 API에서 데이터를 가져와서 포맷팅
         const response = await axios.get('https://api.performfeeds.com/soccerdata/match/1wajy57wfq6wo1qnta55rgx3an?comp=2kwbbcootiqqgmrzs6o5inle5&_pgSz=1000&_rt=b&_fmt=json');
         const data = response.data;
 
@@ -50,7 +48,7 @@ app.get('/', async (req, res) => {
         });
 
         // 포맷팅된 데이터를 캐시에 저장
-        cache.set('formattedData', formattedData);
+        cache.translationCache.set('formattedData', formattedData);
 
         // 클라이언트에 JSON 형태로 데이터를 보냄
         res.json(formattedData);
