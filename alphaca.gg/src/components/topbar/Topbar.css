@@ -8,6 +8,8 @@
   z-index: 5;
   position: fixed;
   box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 10);
+  background-color: var(--background-color);
+
 }
 
 /* 검색창 css */
@@ -29,7 +31,7 @@
   align-items: center;
   padding: 5px;
   border: 1px solid var(--border-color);
-  box-shadow: none; /* 검색창에 그림자 제거 */
+  box-shadow: none;
 }
 
 .Header_search .searchInput input {
@@ -39,7 +41,7 @@
 
 .Header_search .searchInput:focus-within {
   border: 1px solid #1C62B9;
-  
+
 }
 
 .Header_search .searchInput .MuiSvgIcon-root {
@@ -51,10 +53,14 @@
 .Header_search button {
   border-radius: 0 20px 20px 0;
   border: 1px solid var(--border-color);
-  padding: 9px 10px; /* 버튼 내부 패딩 수정 */
-  background-color: var(--button-background-color); /* 배경색 지정 */
-  color: var(--text-color); /* 글자색 지정 */
-  cursor: pointer; /* 커서 스타일 지정 */
+  padding: 9px 10px;
+  /* 버튼 내부 패딩 수정 */
+  background-color: var(--button-background-color);
+  /* 배경색 지정 */
+  color: var(--text-color);
+  /* 글자색 지정 */
+  cursor: pointer;
+  /* 커서 스타일 지정 */
   display: flex;
   justify-content: center;
   align-items: center;

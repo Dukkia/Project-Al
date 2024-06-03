@@ -1,3 +1,5 @@
+@import '../../assets/styles/Variables.css';
+
 .sidepop-menu {
   position: absolute;
   width: 270px;
@@ -56,7 +58,7 @@
 }
 
 .sidepop-button:hover {
-  background-color: var(--hover-background-color);
+  background-color: var(--button-hover-background-color);
 }
 
 .submenu-item {
@@ -76,7 +78,7 @@
 }
 
 .submenu-item:hover {
-  background-color: var(--hover-background-color);
+  background-color: var(--button-hover-background-color);
 }
 
 .sub-text {

@@ -1,6 +1,8 @@
+@import '../assets/styles/Variables.css';
+
 /* 컨테이너 스타일 */
 .schedule-container {
-    margin: 50px;
+    margin: 80px;
 }
 
 
@@ -34,6 +36,7 @@
 
 /* 라이트모드 리그 버튼 효과 */
 .light-mode .league-button {
+    color: var(--color);
     background-color: #F7F7F9;
     border: 1px solid #B4B5C0;
 }

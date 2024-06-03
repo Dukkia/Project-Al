@@ -1,5 +1,3 @@
-// Topbar.jsx
-
 import React, { useState } from 'react';
 import { Avatar, IconButton, InputBase, Paper } from '@mui/material';
 import { Nightlight, WbSunny, NotificationsOutlined, Search } from '@mui/icons-material';
@@ -12,7 +10,7 @@ import Logo from './../../assets/images/Twitch-Logo.png';
 function Topbar({ toggleDarkMode, darkMode, onLanguageChange }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState('ko'); // 기본값을 'ko'로 설정
 
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -30,6 +28,7 @@ function Topbar({ toggleDarkMode, darkMode, onLanguageChange }) {
     setSelectedLanguage(language);
     setSearchQuery('');
     onLanguageChange(language); // 언어 변경 시 콜백 호출
+    setIsLanguageMenuOpen(false); // 언어 변경 후 언어 메뉴 닫기
   };
 
   const getPlaceholder = () => {

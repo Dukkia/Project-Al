@@ -1,0 +1,185 @@
+@import '../assets/styles/Variables.css';
+
+.schedulebox {
+    max-width: 1200px;
+    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+}
+
+/* -----------------2023-24 css----------------- */
+.title {
+    text-align: center;
+}
+
+/* -----------------월별 버튼 css----------------- */
+.button-container {
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+
+}
+
+.month-button {
+    margin: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 0px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.month-button span {
+    font-size: 0.8rem;
+}
+
+.month-button:hover,
+.month-button:focus {
+    font-weight: bold;
+    color: #007bff;
+    box-shadow: inset 0 -3px #007bff;
+}
+
+
+.month-button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transition: border-bottom-color 0.3s;
+    background-color: transparent;
+}
+
+
+/* -----------------6/7월 버튼 css----------------- */
+.death-button {
+    margin: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 0px;
+    color: #7F7F81;
+    background-color: var(--background-color);
+}
+
+.death-button span {
+    font-size: 0.8rem;
+}
+
+
+/* -----------------경기 테이블 css----------------- */
+.match-table {
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 10px;
+    /* 테이블을 둥글게 만듦 */
+    overflow: hidden;
+    /* 테이블 내용이 테두리를 벗어나지 않도록 설정 */
+    border: 2px solid var(--border-color);
+    background-color: var(--background-color);
+}
+
+/* -----------------테이블 간격 조절css----------------- */
+.match-table th {
+    text-align: left;
+    width: 15%;
+    height: 30px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--header--background-color);
+}
+
+
+.match-table td:nth-child(1) {
+    text-align: center;
+    width: 5%;
+    height: 60px;
+}
+
+.match-table td:nth-child(2) {
+    text-align: left;
+    width: 15%;
+}
+
+.match-table td:nth-child(3) {
+    text-align: right;
+    width: 22.5%;
+}
+
+.match-table td:nth-child(4),
+.match-table td:nth-child(6) {
+    text-align: center;
+    width: 3%;
+}
+
+.match-table td:nth-child(5) {
+    text-align: center;
+    width: 5%;
+}
+
+.match-table td:nth-child(7) {
+    text-align: left;
+    width: 22.5%;
+}
+
+.match-table td:nth-child(8) {
+    text-align: center;
+    width: 5%;
+}
+
+.match-table td:nth-child(9) {
+    text-align: right;
+    width: 12.5%;
+}
+
+
+/* -----------------기록 버튼 css----------------- */
+.record-button {
+    /* 보더 추가 */
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    font-size: 0.8rem;
+    border: 1px solid #4D4D4D;
+    color: var(--text-color);
+    background-color: var(--button-background-color);
+
+}
+
+.record-button:hover {
+    background-color: var(--button-hover-background-color);
+}
+
+
+/* -----------------종료/예정 글씨 css----------------- */
+.will {
+    color: #6B9CFF;
+    /* 파란색으로 설정 */
+    font-size: 0.8rem;
+}
+
+.end {
+    color: #919191;
+    /* 노란색으로 설정 */
+    font-size: 0.8rem;
+}
+
+
+/* -----------------로딩 스피너 위치----------------- */
+.schedule-loading {
+    margin-top: 50px;
+}

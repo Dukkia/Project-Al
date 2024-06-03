@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import '../../assets/styles/Odd.css';
+import '../css/Odd.css';
 import { MoonLoader } from 'react-spinners';
 
 function Odd() {
