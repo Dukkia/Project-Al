@@ -12,7 +12,7 @@ function Odd() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8204');
+        const response = await axios.get(`http://${process.env.REACT_APP_API_HOST}:${port}/`);
         const games = response.data.sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
 
         // 날짜별로 그룹화

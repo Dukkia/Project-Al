@@ -10,7 +10,7 @@ const port = 8200;
 const cache = new NodeCache({ stdTTL: 2592000 }); // 캐시 TTL(유효 시간)을 600초(10분)로 설정
 
 // 허용된 오리진 설정
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = ['http://127.0.0.1:5173'];
 
 // cors 미들웨어 추가
 app.use(cors({

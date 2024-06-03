@@ -7,7 +7,7 @@ const cors = require('cors');
 
 const port = 8102;
 
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = ['http://127.0.0.1:5173'];
 
 app.use(cors({
   origin: allowedOrigins,

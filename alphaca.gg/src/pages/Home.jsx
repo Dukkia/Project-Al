@@ -24,7 +24,7 @@ function Home({ selectedLanguage }) {
         default:
           port = 4400; // 기본값으로 영어 포트를 사용합니다.
       }
-      const response = await fetch(`http://localhost:${port}/`);
+      const response = await fetch(`http://${process.env.REACT_APP_API_HOST}:${port}/`);
       if (!response.ok) {
         throw new Error('Failed to fetch translation');
       }

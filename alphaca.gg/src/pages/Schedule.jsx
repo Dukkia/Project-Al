@@ -44,7 +44,7 @@ function Schedule({ selectedLanguage }) {
 
     const fetchData = async () => {
       try {
-        const result = await axios.get(`http://localhost:${port}/`);
+        const result = await axios.get(`http://${process.env.REACT_APP_API_HOST}:${port}/`);
         setData(result.data);
         setLoading(false);
       } catch (error) {

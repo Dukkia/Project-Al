@@ -30,7 +30,7 @@ function Record({ selectedLanguage }) {
             }
 
             try {
-                const response = await axios.get(`http://localhost:${port}/`);
+                const response = await axios.get(`http://${process.env.REACT_APP_API_HOST}:${port}/`);
                 const data = response.data;
 
                 if (data && Array.isArray(data.stage) && data.stage.length > 0 && Array.isArray(data.stage[0].division) && data.stage[0].division.length > 0 && Array.isArray(data.stage[0].division[0].ranking)) {
