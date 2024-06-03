@@ -6,7 +6,7 @@ import Topbar from './components/topbar/Topbar';
 import Sidebar from './components/sidebar/Sidebar';
 import Sidepop from './components/sidebar/Sidepop';
 
-import Content from './pages/Content';
+import Home from './pages/Home';
 import Record from './pages/Record';
 import Schedule from './pages/Schedule';
 
@@ -46,12 +46,13 @@ function App() {
         {isPopupOpen && <Sidepop isOpen={isPopupOpen} togglePopup={togglePopup} selectedLanguage={selectedLanguage} />}
 
         <div className="main-contents">
+        // App.jsx
           <Routes>
-            <Route path="/" element={<Content />} /> {/* 메인 페이지로 사용 */}
+            <Route path="/:language" element={<Home selectedLanguage={selectedLanguage} />} />
             <Route path="/:language/record" element={<Record selectedLanguage={selectedLanguage} />} />
-            <Route path="/:language/Schedule" element={<Schedule selectedLanguage={selectedLanguage} />} />
-
+            <Route path="/:language/schedule" element={<Schedule selectedLanguage={selectedLanguage} />} />
           </Routes>
+
         </div>
       </BrowserRouter>
     </div>

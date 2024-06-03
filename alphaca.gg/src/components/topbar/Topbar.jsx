@@ -47,7 +47,7 @@ function Topbar({ toggleDarkMode, darkMode, onLanguageChange }) {
   return (
     <div className="topbar">
       <div className="Header_logo">
-        <Link to={'/'}>
+        <Link to={'/:language'}>
           <img src={Logo} alt="Logo" />
         </Link>
       </div>

@@ -24,11 +24,11 @@ function Sidebar({ selectedLanguage, togglePopup }) {
         </div>
 
         {/* 홈 버튼에 Link 컴포넌트 적용 */}
-        <Link to="/" className="sidebar-button">
+        <Link to="/:language" className="sidebar-button">
           <span className="icon"><HomeIcon /></span>
           <span className="icon-text">{getText('home')}</span>
         </Link>
-
+        
         <button className="sidebar-button">
           <span className="icon"><SubscriptionsIcon /></span>
           <span className="icon-text">{getText('subscriptions')}</span>

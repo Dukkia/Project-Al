@@ -1,3 +1,4 @@
+// Sidepop.jsx
 import React, { useState } from 'react';
 import './Sidepop.css';
 import { IconButton } from '@mui/material';
@@ -14,15 +15,14 @@ function Sidepop({ isOpen, togglePopup, selectedLanguage }) {
     setShowOverseasSubMenu(!showOverseasSubMenu);
   };
 
-  const handleHomeButtonClick = () => {
-    console.log("Selected language:", selectedLanguage);
-  };
-
   const getText = (key) => {
     return languageTexts[selectedLanguage][key] || languageTexts.ko[key];
   };
 
-  // Schedule 페이지로 이동하는 함수
+  const handleHomeButtonClick = () => {
+    navigate(`/${selectedLanguage}`); // 홈 페이지 경로로 이동
+  };
+
   const handleScheduleButtonClick = () => {
     navigate(`/${selectedLanguage}/schedule`); // Schedule 페이지 경로로 이동
   };
