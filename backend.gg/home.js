@@ -1,13 +1,14 @@
 const express = require('express');
 const fetch = require('node-fetch');
-const NodeCache = require('node-cache');
 const cors = require('cors');
+const NodeCache = require('node-cache');
+
 const htmlContent = require('./htmlContent'); // htmlContent.js 파일에서 HTML 내용을 가져옴
 const { SERVER_URL } = require('./config'); // config.js에서 SERVER_URL을 가져옵니다
 
+const portEn = 4400;
 const portJa = 8100;
 const portKo = 8200;
-const portEn = 4400;
 
 // 허용된 오리진 설정
 const allowedOrigins = [`http://${SERVER_URL}:5173`];
@@ -18,6 +19,11 @@ const corsOptions = {
     methods: ['GET'] // 필요한 HTTP 메서드 지정
 };
 
+// 영어 서버 생성
+const appEn = express();
+appEn.use(cors(corsOptions));
+const cacheEn = new NodeCache({ stdTTL: 2592000 }); // 영어 서버 캐시
+
 // 일본어 서버 생성
 const appJa = express();
 appJa.use(cors(corsOptions));
@@ -27,11 +33,6 @@ const cacheJa = new NodeCache({ stdTTL: 2592000 }); // 일본어 서버 캐시
 const appKo = express();
 appKo.use(cors(corsOptions));
 const cacheKo = new NodeCache({ stdTTL: 2592000 }); // 한국어 서버 캐시
-
-// 영어 서버 생성
-const appEn = express();
-appEn.use(cors(corsOptions));
-const cacheEn = new NodeCache({ stdTTL: 2592000 }); // 영어 서버 캐시
 
 // 캐시 함수
 const getFromCache = (cache, key) => {
@@ -76,6 +77,27 @@ const translate = async (cache, target) => {
     return translatedHtml;
 };
 
+// 영어 서버 엔드포인트
+appEn.get('/', async (req, res) => {
+    try {
+        // 캐시에서 HTML 내용 가져오기
+        let cachedHtml = getFromCache(cacheEn, htmlContent);
+
+        if (!cachedHtml) {
+            console.log('Data not found in cache, retrieving from source...');
+            // 영어 서버에서 번역하지 않고 캐시에 직접 저장
+            cachedHtml = htmlContent;
+            setToCache(cacheEn, htmlContent, cachedHtml);
+        }
+
+        // 캐시된 HTML 내용을 클라이언트에 전송
+        res.send(cachedHtml);
+    } catch (error) {
+        console.error('오류 발생:', error.message);
+        res.status(500).send('서버 내부 오류');
+    }
+});
+
 // 일본어 서버 엔드포인트
 appJa.get('/', async (req, res) => {
     try {
@@ -98,36 +120,15 @@ appKo.get('/', async (req, res) => {
     }
 });
 
-// 영어 서버 엔드포인트
-appEn.get('/', async (req, res) => {
-    try {
-        // 캐시에서 HTML 내용 가져오기
-        let cachedHtml = getFromCache(cacheEn, htmlContent);
-
-        if (!cachedHtml) {
-            console.log('Data not found in cache, retrieving from source...');
-            // 영어 서버에서 번역하지 않고 캐시에 직접 저장
-            cachedHtml = htmlContent;
-            setToCache(cacheEn, htmlContent, cachedHtml);
-        }
-
-        // 캐시된 HTML 내용을 클라이언트에 전송
-        res.send(cachedHtml);
-    } catch (error) {
-        console.error('오류 발생:', error.message);
-        res.status(500).send('서버 내부 오류');
-    }
+// 서버 실행
+appEn.listen(portEn, () => {
+    console.log(`영어 서버가 http://localhost:${portEn} 에서 실행 중입니다.`);
 });
 
-// 서버 실행
 appJa.listen(portJa, () => {
     console.log(`일본어 서버가 http://localhost:${portJa} 에서 실행 중입니다.`);
 });
 
 appKo.listen(portKo, () => {
     console.log(`한국어 서버가 http://localhost:${portKo} 에서 실행 중입니다.`);
-});
-
-appEn.listen(portEn, () => {
-    console.log(`영어 서버가 http://localhost:${portEn} 에서 실행 중입니다.`);
 });

@@ -71,11 +71,11 @@ const createServer = (port, targetLang) => {
     });
 };
 
+// 영어 서버 실행
+createServer(4402, 'en');
+
 // 한국어 서버 실행
 createServer(8202, 'ko');
 
 // 일본어 서버 실행
 createServer(8102, 'ja');
-
-// 영어 서버 실행
-createServer(4402, 'en');
