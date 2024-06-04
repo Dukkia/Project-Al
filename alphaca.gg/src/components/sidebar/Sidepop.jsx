@@ -20,15 +20,18 @@ function Sidepop({ isOpen, togglePopup, selectedLanguage }) {
   };
 
   const handleHomeButtonClick = () => {
-    navigate(`/${selectedLanguage}`); // 홈 페이지 경로로 이동
+    navigate(`/${selectedLanguage}`);
+    togglePopup(); // 팝업 닫기
   };
 
   const handleScheduleButtonClick = () => {
-    navigate(`/${selectedLanguage}/schedule`); // Schedule 페이지 경로로 이동
+    navigate(`/${selectedLanguage}/schedule`);
+    togglePopup(); // 팝업 닫기
   };
 
   const handleRankingButtonClick = () => {
-    navigate(`/${selectedLanguage}/record`); // Record 페이지 경로로 이동
+    navigate(`/${selectedLanguage}/record`);
+    togglePopup(); // 팝업 닫기
   };
 
   if (!isOpen) return null;
