@@ -5,33 +5,40 @@ const cors = require('cors');
 const htmlContent = require('./htmlContent'); // htmlContent.js 파일에서 HTML 내용을 가져옴
 const { SERVER_URL } = require('./config'); // config.js에서 SERVER_URL을 가져옵니다
 
-const app1 = express();
-const app2 = express();
-const port1 = 8100;
-const port2 = 8200;
-
-const cache = new NodeCache({ stdTTL: 2592000 }); // 캐시 TTL(유효 시간)을 600초(10분)로 설정
+const portJa = 8100;
+const portKo = 8200;
+const portEn = 4400;
 
 // 허용된 오리진 설정
 const allowedOrigins = [`http://${SERVER_URL}:5173`];
 
-// cors 미들웨어 추가
-app1.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET'] // 필요한 HTTP 메서드 지정
-}));
+// 공통 cors 미들웨어
+const corsOptions = {
+    origin: allowedOrigins,
+    methods: ['GET'] // 필요한 HTTP 메서드 지정
+};
 
-app2.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET'] // 필요한 HTTP 메서드 지정
-}));
+// 일본어 서버 생성
+const appJa = express();
+appJa.use(cors(corsOptions));
+const cacheJa = new NodeCache({ stdTTL: 2592000 }); // 일본어 서버 캐시
+
+// 한국어 서버 생성
+const appKo = express();
+appKo.use(cors(corsOptions));
+const cacheKo = new NodeCache({ stdTTL: 2592000 }); // 한국어 서버 캐시
+
+// 영어 서버 생성
+const appEn = express();
+appEn.use(cors(corsOptions));
+const cacheEn = new NodeCache({ stdTTL: 2592000 }); // 영어 서버 캐시
 
 // 캐시 함수
-const getFromCache = (key) => {
+const getFromCache = (cache, key) => {
     return cache.get(key);
 };
 
-const setToCache = (key, value) => {
+const setToCache = (cache, key, value) => {
     cache.set(key, value);
 };
 
@@ -39,72 +46,88 @@ const url = 'https://naveropenapi.apigw.ntruss.com/web-trans/v1/translate';
 const apiKeyId = '70gknw92gy';
 const apiKey = 'Y5VjpEoL8bIFsKzOAftW7bR54V7WiMCGntMPuJQl';
 
-// 번역 요청을 보내는 엔드포인트
-const translate = async (sourceLang, targetLang) => {
-    try {
-        // 캐시에서 HTML 내용 가져오기
-        let translatedHtml = getFromCache(htmlContent);
+const translate = async (cache, target) => {
+    let translatedHtml = getFromCache(cache, htmlContent);
+    if (!translatedHtml) {
+        const data = new URLSearchParams();
+        data.append('source', 'en');
+        data.append('target', target);
+        data.append('html', htmlContent);
 
-        // 캐시에 없는 경우에만 API 호출하여 번역 진행
-        if (!translatedHtml) {
-            const data = new URLSearchParams();
-            data.append('source', sourceLang);
-            data.append('target', targetLang);
-            data.append('html', htmlContent);
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-NCP-APIGW-API-KEY-ID': apiKeyId,
+                'X-NCP-APIGW-API-KEY': apiKey
+            },
+            body: data
+        });
 
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-NCP-APIGW-API-KEY-ID': apiKeyId,
-                    'X-NCP-APIGW-API-KEY': apiKey
-                },
-                body: data
-            });
-
-            if (!response.ok) {
-                console.error('API 응답 오류:', response.statusText);
-                console.error('응답 상태 코드:', response.status);
-                throw new Error(`번역 요청 실패: ${response.statusText}`);
-            }
-
-            translatedHtml = await response.text();
-
-            // 번역된 HTML을 캐시에 저장
-            setToCache(htmlContent, translatedHtml);
+        if (!response.ok) {
+            console.error('API 응답 오류:', response.statusText);
+            console.error('응답 상태 코드:', response.status);
+            throw new Error(`번역 요청 실패: ${response.statusText}`);
         }
 
-        return translatedHtml;
-    } catch (error) {
-        console.error('오류 발생:', error.message);
-        throw new Error('번역 실패');
+        translatedHtml = await response.text();
+        setToCache(cache, htmlContent, translatedHtml);
     }
+    return translatedHtml;
 };
 
-// 버튼을 클릭할 때마다 영어에서 일본어로 번역하는 엔드포인트
-app1.get('/', async (req, res) => {
+// 일본어 서버 엔드포인트
+appJa.get('/', async (req, res) => {
     try {
-        const translatedHtml = await translate('en', 'ja');
+        const translatedHtml = await translate(cacheJa, 'ja');
         res.send(translatedHtml);
     } catch (error) {
-        res.status(500).send('번역 실패');
+        console.error('오류 발생:', error.message);
+        res.status(500).send('서버 내부 오류');
     }
 });
 
-// 버튼을 클릭할 때마다 영어에서 한국어로 번역하는 엔드포인트
-app2.get('/', async (req, res) => {
+// 한국어 서버 엔드포인트
+appKo.get('/', async (req, res) => {
     try {
-        const translatedHtml = await translate('en', 'ko');
+        const translatedHtml = await translate(cacheKo, 'ko');
         res.send(translatedHtml);
     } catch (error) {
-        res.status(500).send('번역 실패');
+        console.error('오류 발생:', error.message);
+        res.status(500).send('서버 내부 오류');
     }
 });
 
-app1.listen(port1, () => {
-    console.log(`서버가 http://localhost:${port1}에서 실행 중입니다.`);
+// 영어 서버 엔드포인트
+appEn.get('/', async (req, res) => {
+    try {
+        // 캐시에서 HTML 내용 가져오기
+        let cachedHtml = getFromCache(cacheEn, htmlContent);
+
+        if (!cachedHtml) {
+            console.log('Data not found in cache, retrieving from source...');
+            // 영어 서버에서 번역하지 않고 캐시에 직접 저장
+            cachedHtml = htmlContent;
+            setToCache(cacheEn, htmlContent, cachedHtml);
+        }
+
+        // 캐시된 HTML 내용을 클라이언트에 전송
+        res.send(cachedHtml);
+    } catch (error) {
+        console.error('오류 발생:', error.message);
+        res.status(500).send('서버 내부 오류');
+    }
 });
 
-app2.listen(port2, () => {
-    console.log(`서버가 http://localhost:${port2}에서 실행 중입니다.`);
+// 서버 실행
+appJa.listen(portJa, () => {
+    console.log(`일본어 서버가 http://localhost:${portJa} 에서 실행 중입니다.`);
+});
+
+appKo.listen(portKo, () => {
+    console.log(`한국어 서버가 http://localhost:${portKo} 에서 실행 중입니다.`);
+});
+
+appEn.listen(portEn, () => {
+    console.log(`영어 서버가 http://localhost:${portEn} 에서 실행 중입니다.`);
 });
