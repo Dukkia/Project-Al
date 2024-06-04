@@ -2,12 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const NodeCache = require('node-cache');
 const htmlContent = require('.././htmlContent'); // htmlContent.js 파일에서 HTML 내용을 가져옴
+const { SERVER_URL } = require('../../config'); // config.js에서 SERVER_URL을 가져옵니다
 
 const app = express();
 const port = 4400;
 
 // 허용된 오리진 설정
-const allowedOrigins = ['http://127.0.0.1:5173'];
+const allowedOrigins = [`http://${SERVER_URL}:5173`];
 
 // cors 미들웨어 추가
 app.use(cors({

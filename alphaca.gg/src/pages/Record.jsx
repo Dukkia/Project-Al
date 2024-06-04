@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "./Record.css";
 import { MoonLoader } from 'react-spinners';
 import languageTexts from '../utils/languageTexts';
 import teamLogos from '../utils/teamLogos';
 import leagueLogos from '../utils/leagueLogos';
+import "./Record.css";
 
 function Record({ selectedLanguage }) {
     const [standings, setStandings] = useState([]);
@@ -30,7 +30,7 @@ function Record({ selectedLanguage }) {
             }
 
             try {
-                const response = await axios.get(`http://${process.env.REACT_APP_API_HOST}:${port}/`);
+                const response = await axios.get(`http://${import.meta.env.VITE_URL}:${port}/`);
                 const data = response.data;
 
                 if (data && Array.isArray(data.stage) && data.stage.length > 0 && Array.isArray(data.stage[0].division) && data.stage[0].division.length > 0 && Array.isArray(data.stage[0].division[0].ranking)) {

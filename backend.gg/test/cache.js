@@ -2,7 +2,7 @@
 const axios = require('axios');
 const NodeCache = require('node-cache');
 
-const translationCache = new NodeCache({ stdTTL: 2592000 });
+const translationCache = new NodeCache({ stdTTL: 86400 });
 
 const translateText = async (text) => {
   const cachedTranslation = translationCache.get(text);
@@ -23,7 +23,6 @@ const translateText = async (text) => {
         headers: {
           'X-NCP-APIGW-API-KEY-ID': '70gknw92gy',
           'X-NCP-APIGW-API-KEY': 'Y5VjpEoL8bIFsKzOAftW7bR54V7WiMCGntMPuJQl',
-          
           'Content-Type': 'application/json'
         }
       }

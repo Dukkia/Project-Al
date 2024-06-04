@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const { translateText } = require('./cache'); // translateText 함수를 가져올 때 객체 형태로 가져옴
+const { SERVER_URL } = require('../../config'); // config.js에서 SERVER_URL을 가져옵니다
 
 const app = express();
 const PORT = process.env.PORT || 3204;
@@ -11,7 +12,7 @@ const headers = {
   'X-Api-Key': '87b519e5-4342-4062-be8b-30df3aeab836'
 };
 
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = [`http://${SERVER_URL}:5173`];
 
 app.use(
   cors({

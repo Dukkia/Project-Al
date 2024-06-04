@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 const NodeCache = require('node-cache');
 const cors = require('cors');
 const htmlContent = require('.././htmlContent'); // htmlContent.js 파일에서 HTML 내용을 가져옴
+const { SERVER_URL } = require('../../config'); // config.js에서 SERVER_URL을 가져옵니다
 
 const app = express();
 const port = 8200;
@@ -10,7 +11,7 @@ const port = 8200;
 const cache = new NodeCache({ stdTTL: 2592000 }); // 캐시 TTL(유효 시간)을 600초(10분)로 설정
 
 // 허용된 오리진 설정
-const allowedOrigins = ['http://127.0.0.1:5173'];
+const allowedOrigins = [`http://${SERVER_URL}:5173`];
 
 // cors 미들웨어 추가
 app.use(cors({
