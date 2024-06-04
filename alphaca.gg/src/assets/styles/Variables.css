@@ -1,5 +1,5 @@
 body.light-mode {
-    --background-color: #FFFFFF;
+    --background-color: #F1F1F1;
     --header--background-color: #F7F9FA;
     --button-background-color: #F2F2F2;
     --button-hover-background-color: #E6E6E6;
@@ -8,7 +8,7 @@ body.light-mode {
 }
 
 body.dark-mode {
-    --background-color: #39393C;
+    --background-color: #2C2D33;
     --header--background-color: #303033;
     --button-background-color: #39393C;
     --button-hover-background-color: #303033;
