@@ -3,7 +3,7 @@
 .sidepop-menu {
   position: absolute;
   width: 270px;
-  height: 1000px;
+  height: 100000px;
   background-color: var(--background-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 20;
@@ -38,7 +38,7 @@
 .sidepop-button {
   width: 90%;
   /* 버튼이 메뉴 너비에 맞도록 설정 */
-  height: 5%;
+  height: 0.05%;
   margin-left: 5%;
   margin-right: 5%;
   padding: 10px;

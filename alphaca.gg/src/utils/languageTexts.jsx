@@ -23,7 +23,8 @@ const languageTexts = {
     month: '월',
     record: '기록',
     days: ['일', '월', '화', '수', '목', '금', '토'],
-    status: { scheduled: '예정', ended: '종료' }
+    status: { scheduled: '예정', ended: '종료' },
+    home: '홈'
   },
   ja: {
     premierLeague: 'プレミアリーグ',
@@ -49,7 +50,8 @@ const languageTexts = {
     month: '月',
     record: '記録',
     days: ['日', '月', '火', '水', '木', '金', '土'],
-    status: { scheduled: '予定', ended: '終了' }
+    status: { scheduled: '予定', ended: '終了' },
+    home: 'ホーム',
   },
   en: {
     premierLeague: 'Premier League',
@@ -75,7 +77,8 @@ const languageTexts = {
     month: 'Month',
     record: 'Record',
     days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    status: { scheduled: 'Scheduled', ended: 'Ended' }
+    status: { scheduled: 'Scheduled', ended: 'Ended' },
+    home: 'Home',
   }
 };
 

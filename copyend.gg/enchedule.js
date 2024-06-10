@@ -17,7 +17,7 @@ const createServer = (port, targetLang) => {
 
     app.get('/', async (req, res) => {
         try {
-            const cacheKey = targetLang === 'en' ? 'formattedData' : `formattedData-${targetLang}`;
+            const cacheKey = 'formattedData';
             const cachedData = cache.translationCache.get(cacheKey);
 
             if (cachedData) {
@@ -31,32 +31,27 @@ const createServer = (port, targetLang) => {
 
             const matches = data.match;
 
-            const formattedData = await Promise.all(matches.map(async (match) => {
+            const formattedData = matches.map((match) => {
                 const dateTime = match.matchInfo.date + 'T' + match.matchInfo.time;
                 const koreaTime = moment.utc(dateTime.replace('Z', '')).tz('Asia/Seoul');
 
-                const homeTeamName = targetLang !== 'en' ? await cache.translateText(match.matchInfo.contestant[0].name, targetLang) : match.matchInfo.contestant[0].name;
-                const awayTeamName = targetLang !== 'en' ? await cache.translateText(match.matchInfo.contestant[1].name, targetLang) : match.matchInfo.contestant[1].name;
-
-                const homeTeamId = match.matchInfo.contestant[0].id;
-                const awayTeamId = match.matchInfo.contestant[1].id;
-                const venueName = match.matchInfo.venue.shortName;
-                const goals = match.liveData.goal;
+                const homeTeam = match.matchInfo.contestant[0];
+                const awayTeam = match.matchInfo.contestant[1];
 
                 return {
                     ID: match.matchInfo.id,
                     Date: koreaTime.format('YYYY-MM-DD'),
                     Time: koreaTime.format('HH:mm:ss'),
                     Team: [
-                        { position: 'home', name: homeTeamName, id: homeTeamId },
-                        { position: 'away', name: awayTeamName, id: awayTeamId }
+                        { position: 'home', name: homeTeam.name, id: homeTeam.id },
+                        { position: 'away', name: awayTeam.name, id: awayTeam.id }
                     ],
                     Result: match.liveData.matchDetails.scores ? match.liveData.matchDetails.scores.total : "예정",
                     Round: match.matchInfo.week,
-                    Place: venueName,
-                    goal: goals
+                    Place: match.matchInfo.venue.shortName,
+                    goal: match.liveData.goal
                 };
-            }));
+            });
 
             // 포맷팅된 데이터를 캐시에 저장
             cache.translationCache.set(cacheKey, formattedData);
@@ -74,11 +69,5 @@ const createServer = (port, targetLang) => {
     });
 };
 
-// 영어 서버 실행
-createServer(4401, 'en');
-
-// 한국어 서버 실행
-createServer(8201, 'ko');
-
-// 일본어 서버 실행
-createServer(8101, 'ja');
+// 서버 실행 (영어만 지원)
+createServer(4201, 'en');

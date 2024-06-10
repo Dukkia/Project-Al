@@ -52,7 +52,7 @@ function App() {
             <Route path="/:language" element={<Home selectedLanguage={selectedLanguage} />} />
             <Route path="/:language/record" element={<Record selectedLanguage={selectedLanguage} />} />
             <Route path="/:language/schedule" element={<Schedule selectedLanguage={selectedLanguage} />} />
-            <Route path="/:language/goal/:id" element={<GoalData />} /> {/* 수정된 부분 */}
+            <Route path="/:language/goal/:id" element={<GoalData selectedLanguage={selectedLanguage} />} />
           </Routes>
         </div>
       </BrowserRouter>
