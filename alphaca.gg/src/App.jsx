@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './assets/styles/App.css';
@@ -9,6 +10,7 @@ import Sidepop from './components/sidebar/Sidepop';
 import Home from './pages/Home';
 import Record from './pages/Record';
 import Schedule from './pages/Schedule';
+import GoalData from './pages/GoalData';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -46,13 +48,12 @@ function App() {
         {isPopupOpen && <Sidepop isOpen={isPopupOpen} togglePopup={togglePopup} selectedLanguage={selectedLanguage} />}
 
         <div className="main-contents">
-        // App.jsx
           <Routes>
             <Route path="/:language" element={<Home selectedLanguage={selectedLanguage} />} />
             <Route path="/:language/record" element={<Record selectedLanguage={selectedLanguage} />} />
             <Route path="/:language/schedule" element={<Schedule selectedLanguage={selectedLanguage} />} />
+            <Route path="/:language/goal/:id" element={<GoalData />} /> {/* 수정된 부분 */}
           </Routes>
-
         </div>
       </BrowserRouter>
     </div>

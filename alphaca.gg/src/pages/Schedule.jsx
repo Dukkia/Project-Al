@@ -4,6 +4,7 @@ import './Schedule.css';
 import { MoonLoader } from 'react-spinners';
 import languageTexts from '../utils/languageTexts';
 import teamLogos from '../utils/teamLogos';
+import { Link } from 'react-router-dom'; // Link 추가
 
 function formatDate(dateString, selectedLanguage) {
   const days = languageTexts[selectedLanguage].days;
@@ -34,6 +35,7 @@ function Schedule({ selectedLanguage }) {
   const [data, setData] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedMatchId, setSelectedMatchId] = useState(null); // 선택한 경기의 ID를 상태로 설정
 
   useEffect(() => {
     const port = {
@@ -57,6 +59,11 @@ function Schedule({ selectedLanguage }) {
 
   const handleMonthClick = (month) => {
     setSelectedMonth(month);
+  };
+
+  // 경기 버튼을 클릭할 때 해당 경기의 ID를 상태로 설정하는 함수
+  const handleRecordClick = (matchId) => {
+    setSelectedMatchId(matchId);
   };
 
   const filteredData = selectedMonth
@@ -134,7 +141,10 @@ function Schedule({ selectedLanguage }) {
                         }
                       </td>
                       <td className="end">{item.Round}R</td>
-                      <td><button className="record-button">{languageTexts[selectedLanguage].record}</button> </td>
+                      <td>
+                        {/* 클릭 이벤트를 통해 해당 경기의 ID를 전달하고 GoalData 컴포넌트로 이동 */}
+                        <Link to={`/${selectedLanguage}/goal/${item.ID}`} className="record-button">{languageTexts[selectedLanguage].record}</Link>
+                      </td>
                     </tr>
                   ))}
                 </table>

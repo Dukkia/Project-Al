@@ -143,24 +143,34 @@
     width: 12.5%;
 }
 
+.match-table img {
+    margin-right: 5px;
+    width: 13%;
+    vertical-align: middle; /* 수직 정렬을 중간으로 설정 */
+    position: relative; /* 상대적 위치 조정 가능 */
+    top: -2px; /* 이미지를 위로 1픽셀 이동 */
+    /* 로고와 팀 이름 사이의 간격 조정 */
+}
 
 /* -----------------기록 버튼 css----------------- */
 .record-button {
-    /* 보더 추가 */
-    border-radius: 5px;
+    display: inline-block;
     cursor: pointer;
-    width: 60px;
-    height: 30px;
-    font-size: 0.8rem;
+    padding: 5px 10px; /* 버튼 안의 내용과 버튼 테두리 사이의 간격을 조절합니다 */
+    font-size: 0.8rem;    
+    text-decoration: none; /* 링크에 밑줄을 없앱니다 */    
     border: 1px solid #4D4D4D;
-    color: var(--text-color);
+    border-radius: 5px;
     background-color: var(--button-background-color);
-
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    
 }
 
-.record-button:hover {
+.record-button:hover {    
     background-color: var(--button-hover-background-color);
 }
+
 
 
 /* -----------------종료/예정 글씨 css----------------- */
