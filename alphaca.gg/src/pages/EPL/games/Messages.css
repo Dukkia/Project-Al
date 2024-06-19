@@ -1,0 +1,104 @@
+/* Messages.css */
+
+.messages-container {
+  max-width: 800px;
+  background-color: var(--container-background-color);
+  margin-top: -21px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.messages-box {
+  width: 100%;
+  max-width: 750px;
+  margin: 20px auto;
+  background-color: var(--container-background-color);
+  border-radius: 8px;
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--container-background-color);
+  justify-content: space-between;
+  align-items: center;
+  /* Center vertically */
+}
+
+.table-time {
+  width: 10%;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.table-comment {
+  width: 90%;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  ;
+}
+
+.section-header.button-like {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: var(--container-background-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid var(--border-color);
+  margin-top: -1px;
+}
+
+.section-header.button-like:hover {
+  background-color: var(--container-background-color);
+}
+
+.section-header.button-like h2 {
+  margin: 0;
+}
+
+.section-header.button-like span {
+  margin-left: 10px;
+}
+
+.arrow-icon-up {
+  position: relative;
+  /* 상대 위치 설정 */
+  margin-left: 20px;
+  /* 왼쪽 여백 설정 */
+  margin-top: 5px;
+  /* 위 여백 설정 */
+}
+
+.arrow-icon-down {
+  position: relative;
+  /* 상대 위치 설정 */
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+
+.message-team-logo {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  display: inline-block;
+  /* 줄 바꿈 방지 */
+  vertical-align: middle;
+  /* 이미지가 텍스트와 수직으로 가운데 정렬되도록 */
+}
+
+.match-details {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  margin: 0 10px;
+}

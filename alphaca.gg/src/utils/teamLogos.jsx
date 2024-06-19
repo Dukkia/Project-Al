@@ -23,6 +23,7 @@ import Wolves from '../assets/images/team-Logo/Wolves-Logo.png';
 const teamLogos = {
     // 한글 팀 이름과 이미지 경로 추가
     "AFC 본머스": AFC,
+    "본머스": AFC,
     "아스날": Arsenal,
     "애스턴 빌라": Aston,
     "브렌트포드": Brentford,
@@ -45,10 +46,12 @@ const teamLogos = {
 
     // 영어 팀 이름과 이미지 경로 추가
     "AFC Bournemouth": AFC,
+    "Bournemouth": AFC,
     "Arsenal": Arsenal,
     "Aston Villa": Aston,
     "Brentford": Brentford,
     "Brighton & Hove Albion": Brighton,
+    "Brighton and Hove Albion": Brighton,
     "Burnley": Burnley,
     "Chelsea": Chelsea,
     "Crystal Palace": Crystal,
@@ -67,6 +70,7 @@ const teamLogos = {
 
     // 일본어 팀 이름과 이미지 경로 추가
     "AFCボーンマス": AFC,
+    "ボーンマス": AFC,
     "アーセナル": Arsenal,
     "アストン·ヴィラ": Aston,
     "ブレントフォード": Brentford,

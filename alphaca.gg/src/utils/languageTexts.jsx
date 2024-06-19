@@ -24,7 +24,15 @@ const languageTexts = {
     record: '기록',
     days: ['일', '월', '화', '수', '목', '금', '토'],
     status: { scheduled: '예정', ended: '종료' },
-    home: '홈'
+    home: '홈',
+    firstHalf: '전반전',
+    secondHalf: '후반전',
+    power: '전력',
+    lineup: '라인업',
+    relay_broadcast: '중계',
+    video: '영상',
+    first_half: '전반전',
+    second_half: '후반전',
   },
   ja: {
     premierLeague: 'プレミアリーグ',
@@ -52,6 +60,14 @@ const languageTexts = {
     days: ['日', '月', '火', '水', '木', '金', '土'],
     status: { scheduled: '予定', ended: '終了' },
     home: 'ホーム',
+    firstHalf: '前半',
+    secondHalf: '後半',
+    power: 'パワー',
+    lineup: 'ラインナップ',
+    relay_broadcast: '中継',
+    video: '映像',
+    first_half: '前半',
+    second_half: '後半',
   },
   en: {
     premierLeague: 'Premier League',
@@ -79,6 +95,14 @@ const languageTexts = {
     days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     status: { scheduled: 'Scheduled', ended: 'Ended' },
     home: 'Home',
+    firstHalf: 'First Half',
+    secondHalf: 'Second Half',
+    power: 'power',
+    lineup: 'lineup',
+    relay_broadcast: 'relay broadcast',
+    video: 'video',
+    first_half: 'First Half',
+    second_half: 'Second Half',
   }
 };
 

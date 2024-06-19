@@ -1,4 +1,3 @@
-// Sidepop.jsx
 import React, { useState } from 'react';
 import './Sidepop.css';
 import { IconButton } from '@mui/material';
@@ -6,13 +5,20 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Logo from './../../assets/images/Twitch-Logo.png';
 import languageTexts from '../../utils/navbarTexts';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../../utils/LanguageContext'; // LanguageContext에서 useLanguage 가져오기
 
-function Sidepop({ isOpen, togglePopup, selectedLanguage }) {
+function Sidepop({ isOpen, togglePopup }) {
   const [showOverseasSubMenu, setShowOverseasSubMenu] = useState(false);
+  const [showDomesticSubMenu, setShowDomesticSubMenu] = useState(false);
   const navigate = useNavigate();
+  const { selectedLanguage } = useLanguage(); // LanguageContext에서 선택된 언어 가져오기
 
   const handleOverseasClick = () => {
     setShowOverseasSubMenu(!showOverseasSubMenu);
+  };
+
+  const handleDomesticClick = () => {
+    setShowDomesticSubMenu(!showDomesticSubMenu);
   };
 
   const getText = (key) => {
@@ -51,9 +57,20 @@ function Sidepop({ isOpen, togglePopup, selectedLanguage }) {
         <button className="sidepop-button" onClick={handleHomeButtonClick}>
           <span>{getText('home')}</span>
         </button>
-        <button className="sidepop-button">
+        <button className="sidepop-button" onClick={handleDomesticClick}>
           <span>{getText('domestic')}</span>
         </button>
+
+        {showDomesticSubMenu && (
+          <div className="sidepop-submenu">
+            <button className="submenu-item">
+              <span className="sub-text">aaa</span>
+            </button>
+            <button className="submenu-item">
+              <span className="sub-text">bbb</span>
+            </button>
+          </div>
+        )}
 
         <button className="sidepop-button" onClick={handleOverseasClick}>
           <span>{getText('overseas')}</span>

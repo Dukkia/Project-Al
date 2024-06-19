@@ -1,14 +1,15 @@
-// Record.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MoonLoader } from 'react-spinners';
-import languageTexts from '../utils/languageTexts';
-import teamLogos from '../utils/teamLogos';
-import leagueLogos from '../utils/leagueLogos';
+import languageTexts from '../../utils/languageTexts';
+import teamLogos from '../../utils/teamLogos';
+import leagueLogos from '../../utils/leagueLogos';
+import { useLanguage } from '../../utils/LanguageContext'; // Adjust the import path based on your project structure
 import "./Record.css";
 
-function Record({ selectedLanguage }) {
+function Record() {
+    const { selectedLanguage } = useLanguage(); // Access selectedLanguage from LanguageContext
+
     const [standings, setStandings] = useState([]);
     const [loading, setLoading] = useState(true);
 

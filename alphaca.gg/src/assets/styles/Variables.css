@@ -12,6 +12,7 @@ body.dark-mode {
     --header--background-color: #303033;
     --button-background-color: #39393C;
     --button-hover-background-color: #303033;
+    --container-background-color: #39393C;
     --text-color: #F0F0F0;
     --border-color: #454545;
 }

@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import './Home.css'; // 스타일 파일 임포트
+import './Home.css'; // Import style file
+import { useLanguage } from '../utils/LanguageContext'; // Import useLanguage hook
 
-function Home({ selectedLanguage }) {
+function Home() {
+  const { selectedLanguage } = useLanguage(); // Access selectedLanguage from context using custom hook
   const [translatedHtml, setTranslatedHtml] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchTranslatedHtml();
-  }, [selectedLanguage]); // selectedLanguage이 변경될 때마다 다시 실행됩니다.
+  }, [selectedLanguage]); // Fetch new content when selectedLanguage changes
 
   const fetchTranslatedHtml = async () => {
+    setLoading(true);
+    setError(null);
+
     try {
       let port;
       switch (selectedLanguage) {
@@ -22,8 +29,9 @@ function Home({ selectedLanguage }) {
           port = 8200;
           break;
         default:
-          port = 4400; // 기본값으로 영어 포트를 사용합니다.
+          port = 8200; // Default to English port
       }
+
       const response = await fetch(`http://${import.meta.env.VITE_URL}:${port}/`);
       if (!response.ok) {
         throw new Error('Failed to fetch translation');
@@ -31,12 +39,23 @@ function Home({ selectedLanguage }) {
       const data = await response.text();
       setTranslatedHtml(data);
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error fetching translated content:', error);
+      setError('Failed to fetch translation. Please try again later.');
+    } finally {
+      setLoading(false);
     }
   };
 
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="error">{error}</div>;
+  }
+
   return (
-    <div dangerouslySetInnerHTML={{ __html: translatedHtml }} />
+    <div className="translated-content" dangerouslySetInnerHTML={{ __html: translatedHtml }} />
   );
 }
 

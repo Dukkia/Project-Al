@@ -8,8 +8,11 @@ import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined';
 import VerticalAlignBottomSharpIcon from '@mui/icons-material/VerticalAlignBottomSharp';
 import languageTexts from '../../utils/navbarTexts';
+import { useLanguage } from '../../utils/LanguageContext'; // LanguageContext에서 useLanguage 가져오기
 
-function Sidebar({ selectedLanguage, togglePopup }) {
+function Sidebar({ togglePopup }) {
+  const { selectedLanguage, changeLanguage } = useLanguage(); // LanguageContext에서 선택된 언어와 언어 변경 함수 가져오기
+
   const getText = (key) => {
     return languageTexts[selectedLanguage][key] || languageTexts.ko[key];
   };
@@ -24,7 +27,7 @@ function Sidebar({ selectedLanguage, togglePopup }) {
         </div>
 
         {/* 홈 버튼에 Link 컴포넌트 적용 */}
-        <Link to="/:language" className="sidebar-button">
+        <Link to={`/${selectedLanguage}`} className="sidebar-button">
           <span className="icon"><HomeIcon /></span>
           <span className="icon-text">{getText('home')}</span>
         </Link>

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Schedule.css';
 import { MoonLoader } from 'react-spinners';
-import languageTexts from '../utils/languageTexts';
-import teamLogos from '../utils/teamLogos';
-import { Link } from 'react-router-dom'; // Link 추가
+import languageTexts from '../../utils/languageTexts';
+import teamLogos from '../../utils/teamLogos';
+import { Link } from 'react-router-dom';
+import { useLanguage } from '../../utils/LanguageContext'; // Adjust the import path based on your project structure
 
 function formatDate(dateString, selectedLanguage) {
   const days = languageTexts[selectedLanguage].days;
@@ -12,7 +13,7 @@ function formatDate(dateString, selectedLanguage) {
   const month = (date.getMonth() + 1).toString().padStart(1, '0');
   const day = date.getDate().toString().padStart(1, '0');
   const dayOfWeek = days[date.getDay()];
-  return `${month} / ${day} (${dayOfWeek})`;
+  return `${month} / ${day} (${dayOfWeek})`;
 }
 
 function formatTime(timeString) {
@@ -31,11 +32,13 @@ function formatResult(result, selectedLanguage) {
   }
 }
 
-function Schedule({ selectedLanguage }) {
+function Schedule() {
+  const { selectedLanguage } = useLanguage(); // Access selectedLanguage from LanguageContext
+
   const [data, setData] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [selectedMatchId, setSelectedMatchId] = useState(null); // 선택한 경기의 ID를 상태로 설정
+  const [selectedMatchId, setSelectedMatchId] = useState(null);
 
   useEffect(() => {
     const port = {
@@ -61,9 +64,13 @@ function Schedule({ selectedLanguage }) {
     setSelectedMonth(month);
   };
 
-  // 경기 버튼을 클릭할 때 해당 경기의 ID를 상태로 설정하는 함수
-  const handleRecordClick = (matchId) => {
-    setSelectedMatchId(matchId);
+  const handleRecordClick = async (matchId) => {
+    try {
+      const response = await axios.post(`http://localhost:2000/api/saveMatchId`, { matchId });
+      console.log('Match ID sent to server:', matchId);
+    } catch (error) {
+      console.error('Error sending match ID to server:', error);
+    }
   };
 
   const filteredData = selectedMonth
@@ -91,10 +98,10 @@ function Schedule({ selectedLanguage }) {
           <div className="button-container">
             {[...new Set(data.map(item => item.Date.slice(0, 7)))].reverse().map((month, index) => (
               <button key={index} onClick={() => handleMonthClick(month)} className="month-button">{new Date(month).getMonth() + 1}
-                <span> {languageTexts[selectedLanguage].month}</span></button>
+                <span> {languageTexts[selectedLanguage].month}</span></button>
             ))}
-            <button className="death-button">6<span> {languageTexts[selectedLanguage].month}</span></button>
-            <button className="death-button">7<span> {languageTexts[selectedLanguage].month}</span></button>
+            <button className="death-button">6<span> {languageTexts[selectedLanguage].month}</span></button>
+            <button className="death-button">7<span> {languageTexts[selectedLanguage].month}</span></button>
           </div>
           {Object.keys(groupedData).reverse().map((date, index) => {
             return (
@@ -102,7 +109,7 @@ function Schedule({ selectedLanguage }) {
                 <table className="match-table">
                   <thead>
                     <tr>
-                      <th colSpan="9" style={{ textAlign: 'left' }}>　{formatDate(date, selectedLanguage)}</th>
+                      <th colSpan="9" style={{ textAlign: 'left' }}> {formatDate(date, selectedLanguage)}</th>
                     </tr>
                   </thead>
                   {groupedData[date].map((item, index) => (
@@ -142,8 +149,9 @@ function Schedule({ selectedLanguage }) {
                       </td>
                       <td className="end">{item.Round}R</td>
                       <td>
-                        {/* 클릭 이벤트를 통해 해당 경기의 ID를 전달하고 GoalData 컴포넌트로 이동 */}
-                        <Link to={`/${selectedLanguage}/goal/${item.ID}`} className="record-button">{languageTexts[selectedLanguage].record}</Link>
+                        <Link to={`/${selectedLanguage}/goal/${item.ID}`} onClick={() => handleRecordClick(item.ID)} className="record-button">
+                          {languageTexts[selectedLanguage].record}
+                        </Link>
                       </td>
                     </tr>
                   ))}

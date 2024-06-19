@@ -3,14 +3,16 @@ import { Avatar, IconButton, InputBase, Paper } from '@mui/material';
 import { Nightlight, WbSunny, NotificationsOutlined, Search } from '@mui/icons-material';
 import LanguageIcon from '@mui/icons-material/Language';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../../utils/LanguageContext'; // LanguageContext에서 커스텀 훅 import
 import './Topbar.css';
 
 import Logo from './../../assets/images/Twitch-Logo.png';
 
-function Topbar({ toggleDarkMode, darkMode, onLanguageChange }) {
+function Topbar({ toggleDarkMode, darkMode }) {
+  const { selectedLanguage, changeLanguage } = useLanguage(); // LanguageContext에서 언어 상태와 변경 함수 가져오기
+
   const [searchQuery, setSearchQuery] = useState('');
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('ko'); // 기본값을 'ko'로 설정
 
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -24,11 +26,10 @@ function Topbar({ toggleDarkMode, darkMode, onLanguageChange }) {
     setIsLanguageMenuOpen(!isLanguageMenuOpen);
   };
 
-  const changeLanguage = (language) => {
-    setSelectedLanguage(language);
-    setSearchQuery('');
-    onLanguageChange(language); // 언어 변경 시 콜백 호출
+  const handleLanguageChange = (language) => {
+    changeLanguage(language); // LanguageContext의 changeLanguage 함수 호출
     setIsLanguageMenuOpen(false); // 언어 변경 후 언어 메뉴 닫기
+    setSearchQuery(''); // 검색 쿼리 초기화 (선택 언어에 따라 플레이스홀더가 변경되기 때문에)
   };
 
   const getPlaceholder = () => {
@@ -88,13 +89,12 @@ function Topbar({ toggleDarkMode, darkMode, onLanguageChange }) {
         </IconButton>
         {isLanguageMenuOpen && (
           <div className="language-popup">
-            <div onClick={() => changeLanguage('ko')}>한국어</div>
-            <div onClick={() => changeLanguage('ja')}>日本語</div>
-            <div onClick={() => changeLanguage('en')}>English</div>
+            <div onClick={() => handleLanguageChange('ko')}>한국어</div>
+            <div onClick={() => handleLanguageChange('ja')}>日本語</div>
+            <div onClick={() => handleLanguageChange('en')}>English</div>
           </div>
         )}
       </div>
-      
     </div>
   );
 }

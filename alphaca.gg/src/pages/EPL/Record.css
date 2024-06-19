@@ -1,4 +1,4 @@
-@import '../assets/styles/Variables.css';
+@import '../../assets/styles/Variables.css';
 
 /* 컨테이너 스타일 */
 .schedule-container {
@@ -124,9 +124,12 @@ th:not(:nth-child(2)) {
 .team-logo img {
     margin-right: 5px;
     width: 7%;
-    vertical-align: middle; /* 수직 정렬을 중간으로 설정 */
-    position: relative; /* 상대적 위치 조정 가능 */
-    top: 1px; /* 이미지를 위로 1픽셀 이동 */
+    vertical-align: middle;
+    /* 수직 정렬을 중간으로 설정 */
+    position: relative;
+    /* 상대적 위치 조정 가능 */
+    top: 1px;
+    /* 이미지를 위로 1픽셀 이동 */
     /* 로고와 팀 이름 사이의 간격 조정 */
 }
 
