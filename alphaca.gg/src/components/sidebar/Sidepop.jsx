@@ -40,6 +40,16 @@ function Sidepop({ isOpen, togglePopup }) {
     togglePopup(); // 팝업 닫기
   };
 
+  const handleKScheduleButtonClick = () => {
+    navigate(`/${selectedLanguage}/kschedule`);
+    togglePopup(); // 팝업 닫기
+  };
+
+  const handleKRankingButtonClick = () => {
+    navigate(`/${selectedLanguage}/krecord`);
+    togglePopup(); // 팝업 닫기
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -63,11 +73,14 @@ function Sidepop({ isOpen, togglePopup }) {
 
         {showDomesticSubMenu && (
           <div className="sidepop-submenu">
-            <button className="submenu-item">
-              <span className="sub-text">aaa</span>
+            <button className="submenu-item" onClick={handleKScheduleButtonClick}>
+              <span className="sub-text">{getText('schedule')}</span>
+            </button>
+            <button className="submenu-item" onClick={handleKRankingButtonClick}>
+              <span className="sub-text">{getText('ranking')}</span>
             </button>
             <button className="submenu-item">
-              <span className="sub-text">bbb</span>
+              <span className="sub-text">{getText('betting')}</span>
             </button>
           </div>
         )}

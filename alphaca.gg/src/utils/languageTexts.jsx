@@ -7,6 +7,7 @@ const languageTexts = {
     ligue1: '리그 1',
     season: '2023/24 시즌 팀 순위',
     rank: '순위',
+    tier: '위',
     team: '팀',
     matches: '경기',
     wins: '승',
@@ -33,6 +34,22 @@ const languageTexts = {
     video: '영상',
     first_half: '전반전',
     second_half: '후반전',
+    recentMatches: '최근경기',
+    averageGoals: '평균득점',
+    averageConceded: '평균실점',
+    matchResults: {
+      W: '승',
+      D: '무',
+      L: '패'
+    },
+    powerRank: '파워 랭크',
+    globalRank: '글로벌 순위',
+    powerRating: '전력 점수',
+    playerExpect: '플레이어 기대 득점/실점',
+    Name: '이름',
+    Expected_Goals: '기대득점',
+    Expected_Goals_Conceded: '기대실점',
+    Total: '합'
   },
   ja: {
     premierLeague: 'プレミアリーグ',
@@ -42,6 +59,7 @@ const languageTexts = {
     ligue1: 'リーグ 1',
     season: '2023/24 シーズン チーム順位',
     rank: '順位',
+    tier: '位',
     team: 'チーム',
     matches: '試合',
     wins: '勝',
@@ -68,6 +86,22 @@ const languageTexts = {
     video: '映像',
     first_half: '前半',
     second_half: '後半',
+    recentMatches: '最近の試合',
+    averageGoals: '平均得点',
+    averageConceded: '平均失点',
+    matchResults: {
+      W: '勝',
+      D: '無',
+      L: '負'
+    },
+    powerRank: 'パワーランク',
+    globalRank: 'グローバルランク',
+    powerRating: 'パワースコア',
+    playerExpect: 'プレーヤーの期待得点/失点',
+    Name: '名前',
+    Expected_Goals: '期待得点',
+    Expected_Goals_Conceded: '期待失点',
+    Total: '合計'
   },
   en: {
     premierLeague: 'Premier League',
@@ -77,6 +111,7 @@ const languageTexts = {
     ligue1: 'Ligue 1',
     season: '2023/24 Season Team Standings',
     rank: 'Rank',
+    tier: 'tier',
     team: 'Team',
     matches: 'Matches',
     wins: 'Wins',
@@ -103,6 +138,22 @@ const languageTexts = {
     video: 'video',
     first_half: 'First Half',
     second_half: 'Second Half',
+    recentMatches: 'Recent Matches',
+    averageGoals: 'Average Goals',
+    averageConceded: 'Average Conceded',
+    matchResults: {
+      W: 'W',
+      D: 'D',
+      L: 'L'
+    },
+    powerRank: 'Power Rank',
+    globalRank: 'Global Rank',
+    powerRating: 'Power Score',
+    playerExpect: 'Player Expected Goals/Goals Conceded',
+    Name: 'Name',
+    Expected_Goals: 'Expected Goals',
+    Expected_Goals_Conceded: 'Expected Goals Conceded',
+    Total: 'Total'
   }
 };
 

@@ -1,0 +1,101 @@
+/* Player.css */
+
+.player-container {
+    background-color: var(--container-background-color);
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 50px;
+    border-radius: 0px 0px 10px 10px;
+    text-Align: center;
+}
+
+.player-table-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    width: 95%;
+    margin: 20px auto; /* Center the container horizontally */
+    padding-right: 10px; /* Adjust spacing */
+}
+
+.team-table {
+    width: 49%; /* Adjust width to accommodate border */
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden; /* Prevents border-radius from being overridden by child elements */
+}
+
+.home-team-table-header {
+    border-bottom: 4px solid #2B407E;
+    margin-bottom: -10px;
+}
+
+.away-team-table-header {
+    border-bottom: 4px solid #252F64;
+    margin-bottom: -10px;
+}
+
+.team-table-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: var(--container-background-color);
+    font-weight: bold;
+}
+
+.team-table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #545457;
+}
+
+.team-table-header div {
+    text-align: center;
+}
+
+.team-table-header div:nth-child(1),
+.team-table-row div:nth-child(1) {
+    width: 10%;
+    text-align: center;
+}
+
+.team-table-header div:nth-child(2),
+.team-table-row div:nth-child(2) {
+    text-align: left;
+    width: 30%;
+}
+
+.team-table-header div:nth-child(3),
+.team-table-row div:nth-child(3),
+.team-table-row.total-row div:nth-child(3) {
+    width: 25%;
+    text-align: center;
+}
+
+.team-table-header div:nth-child(4),
+.team-table-row div:nth-child(4),
+.team-table-row.total-row div:nth-child(4) {
+    width: 30%;
+    text-align: center;
+}
+
+/* Vertically center align text in table rows */
+.team-table-body li {
+    display: flex;
+    align-items: center; /* Vertically center align items */
+}
+
+/* Additional styles for total row */
+.home-team-table-row{
+    border-top: 4px solid #2B407E;
+    margin-top: -6px;
+    font-weight: bold;
+}
+
+/* Additional styles for total row */
+.away-team-table-row{
+    border-top: 4px solid #252F64;
+    margin-top: -6px;
+    font-weight: bold;
+}

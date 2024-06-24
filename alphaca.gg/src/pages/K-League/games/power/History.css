@@ -1,0 +1,74 @@
+/* Power.css */
+
+.power-info {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: var(--container-background-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.teams-container {
+    display: flex;
+    justify-content: center;
+}
+
+.team-stats {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--container-background-color);
+}
+
+.team-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+
+.team-info>div {
+    flex: 1;
+    text-align: center;
+}
+
+.vs-text {
+    font-size: 30px;
+    font-weight: bold;
+    color: #919192;
+}
+
+.team-info>.home-team {
+    text-align: right;
+    font-weight: bold;
+}
+
+.team-info>.away-team {
+    text-align: left;
+    font-weight: bold;
+}
+
+.result-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 2px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 3px;
+}
+
+.result-box.win {
+    color: #6BB579;
+    border-color: #6BB579;
+}
+
+.result-box.draw {
+    color: #8D8D8D;
+    border-color: #8D8D8D;
+}
+
+.result-box.lose {
+    color: #5F9FDE;
+    border-color: #5F9FDE;
+}

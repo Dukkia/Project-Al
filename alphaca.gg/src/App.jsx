@@ -12,8 +12,11 @@ import Sidepop from './components/sidebar/Sidepop';
 import Home from './pages/Home';
 import Record from './pages/EPL/Record';
 import Schedule from './pages/EPL/Schedule';
-
 import GameData from './pages/EPL/GameData';
+
+import KRecord from './pages/K-League/Record';
+import KSchedule from './pages/K-League/Schedule';
+import KGameData from './pages/K-League/GameData';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -57,6 +60,10 @@ function App() {
               <Route path="/:language/record" element={<Record />} />
               <Route path="/:language/schedule" element={<Schedule />} />
               <Route path="/:language/goal/:id" element={<GameData />} />
+
+              <Route path="/:language/krecord" element={<KRecord />} />
+              <Route path="/:language/kschedule" element={<KSchedule />} />
+              <Route path="/:language/kgoal/:id" element={<KGameData />} />
             </Routes>
           </div>
         </BrowserRouter>

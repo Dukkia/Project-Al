@@ -1,0 +1,39 @@
+.power-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: var(--container-background-color);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.power-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.power-cell {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.global-rank-label,
+.power-rating-label {
+    color: #919192;
+    font-size: 15px;
+    max-width: 210px;
+}
+
+.home-team {
+    text-align: right;
+    font-weight: bold;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.away-team {
+    text-align: left;
+    font-weight: bold;
+    justify-content: space-between;
+    padding: 8px;
+}
