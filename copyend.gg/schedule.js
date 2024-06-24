@@ -42,6 +42,7 @@ const createServer = (port, targetLang) => {
                 const awayTeamId = match.matchInfo.contestant[1].id;
                 const venueName = match.matchInfo.venue.shortName;
                 const goals = match.liveData.goal;
+                const lineUps = match.liveData.lineUp;
 
                 return {
                     ID: match.matchInfo.id,
@@ -54,7 +55,8 @@ const createServer = (port, targetLang) => {
                     Result: match.liveData.matchDetails.scores ? match.liveData.matchDetails.scores.total : "예정",
                     Round: match.matchInfo.week,
                     Place: venueName,
-                    goal: goals
+                    goal: goals,
+                    lineUp: lineUps
                 };
             }));
 

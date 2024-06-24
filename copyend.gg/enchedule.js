@@ -37,6 +37,9 @@ const createServer = (port, targetLang) => {
 
                 const homeTeam = match.matchInfo.contestant[0];
                 const awayTeam = match.matchInfo.contestant[1];
+                const venueName = match.matchInfo.venue.shortName;
+                const goals = match.liveData.goal;
+                const lineUps = match.liveData.lineUp;
 
                 return {
                     ID: match.matchInfo.id,
@@ -48,8 +51,9 @@ const createServer = (port, targetLang) => {
                     ],
                     Result: match.liveData.matchDetails.scores ? match.liveData.matchDetails.scores.total : "예정",
                     Round: match.matchInfo.week,
-                    Place: match.matchInfo.venue.shortName,
-                    goal: match.liveData.goal
+                    Place: venueName,
+                    goal: goals,
+                    lineUp: lineUps
                 };
             });
 
@@ -70,4 +74,4 @@ const createServer = (port, targetLang) => {
 };
 
 // 서버 실행 (영어만 지원)
-createServer(4201, 'en');
+createServer(4401, 'en');
