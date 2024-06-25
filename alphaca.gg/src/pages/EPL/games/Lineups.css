@@ -55,7 +55,7 @@
 }
 
 .team-lineup {
-    background-image: url(../../../assets/images/soccer-field.jpg);
+    background-image: url(../../../assets/images/soccer_field.jpg);
     /* 배경 이미지 경로 설정 */
     background-size: cover;
     /* 이미지를 컨테이너에 맞게 조정 */
