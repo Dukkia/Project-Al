@@ -16,7 +16,7 @@ const Power = ({ gameId, homeTeamName, awayTeamName }) => {
     useEffect(() => {
         const fetchMatchDescription = async () => {
             try {
-                const response = await axios.get(`http://${import.meta.env.VITE_URL}:2080`);
+                const response = await axios.get(`http://${import.meta.env.VITE_URL}:4440`);
                 const match = response.data.match.find(match => match.matchInfo.id === gameId);
 
                 if (match) {

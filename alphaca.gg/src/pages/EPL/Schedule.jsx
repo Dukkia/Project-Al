@@ -66,7 +66,7 @@ function Schedule() {
 
   const handleRecordClick = async (matchId) => {
     try {
-      const response = await axios.post(`http://localhost:2000/`, { matchId });
+      const response = await axios.post(`http://${import.meta.env.VITE_URL}:2000/`, { matchId });
       console.log('Match ID sent to server:', matchId);
     } catch (error) {
       console.error('Error sending match ID to server:', error);

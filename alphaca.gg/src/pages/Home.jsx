@@ -20,16 +20,16 @@ function Home() {
       let port;
       switch (selectedLanguage) {
         case 'en':
-          port = 4400;
+          port = 2044;
           break;
         case 'ja':
-          port = 8100;
+          port = 2081;
           break;
         case 'ko':
-          port = 8200;
+          port = 2082;
           break;
         default:
-          port = 8200; // Default to English port
+          port = 2082; // Default to English port
       }
 
       const response = await fetch(`http://${import.meta.env.VITE_URL}:${port}/`);

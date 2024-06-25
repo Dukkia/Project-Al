@@ -10,7 +10,7 @@ const Player = ({ homeTeamName, awayTeamName, homeLineup, awayLineup, texts }) =
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000'); // API 엔드포인트에 따라 경로를 수정하세요.
+        const response = await fetch(`http://${import.meta.env.VITE_URL}:2020`); // API 엔드포인트에 따라 경로를 수정하세요.
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

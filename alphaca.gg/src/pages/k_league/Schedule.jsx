@@ -42,9 +42,9 @@ function Schedule() {
 
   useEffect(() => {
     const port = {
-      ko: '8201',
-      ja: '8101',
-      en: '4401'
+      ko: '8271',
+      ja: '8171',
+      en: '4471'
     }[selectedLanguage];
 
     const fetchData = async () => {
@@ -66,7 +66,7 @@ function Schedule() {
 
   const handleRecordClick = async (matchId) => {
     try {
-      const response = await axios.post(`http://localhost:2000/`, { matchId });
+      const response = await axios.post(`http://${import.meta.env.VITE_URL}:2000/`, { matchId });
       console.log('Match ID sent to server:', matchId);
     } catch (error) {
       console.error('Error sending match ID to server:', error);
@@ -94,7 +94,7 @@ function Schedule() {
         </div>
       ) : (
         <>
-          <h1 className="title">2023-24</h1>
+          <h1 className="title">2024</h1>
           <div className="button-container">
             {[...new Set(data.map(item => item.Date.slice(0, 7)))].reverse().map((month, index) => (
               <button key={index} onClick={() => handleMonthClick(month)} className="month-button">{new Date(month).getMonth() + 1}
@@ -149,7 +149,7 @@ function Schedule() {
                       </td>
                       <td className="end">{item.Round}R</td>
                       <td>
-                        <Link to={`/${selectedLanguage}/goal/${item.ID}`} onClick={() => handleRecordClick(item.ID)} className="record-button">
+                        <Link to={`/${selectedLanguage}/kgoal/${item.ID}`} onClick={() => handleRecordClick(item.ID)} className="record-button">
                           {languageTexts[selectedLanguage].record}
                         </Link>
                       </td>

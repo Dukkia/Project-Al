@@ -60,25 +60,25 @@ function Record() {
                 <>
                     <div className="box-container">
                         <button className="league-button">
-                            <img src={leagueLogos['프리미어리그']} alt="프리미어리그 로고" className="league-logo" />
-                            <span>　{texts.premierLeague}</span>
+                            <img src={leagueLogos['K리그 1']} alt="K리그 1 로고" className="league-logo" />
+                            <span>　{texts.kLeague1}</span>
                         </button>
                         <button className="league-button">
-                            <img src={leagueLogos['라리가']} alt="라리가 로고" className="league-logo" />
-                            <span>　{texts.laLiga}</span>
+                            <img src={leagueLogos['K리그 2']} alt="K리그 2 로고" className="league-logo" />
+                            <span>　{texts.kLeague2}</span>
                         </button>
                         <button className="league-button">
-                            <img src={leagueLogos['분데스리가']} alt="분데스리가 로고" className="league-logo" />
-                            <span>　{texts.bundesliga}</span>
+                            <img src={leagueLogos['K리그 3']} alt="K리그 3 로고" className="league-logo" />
+                            <span>　{texts.kLeague3}</span>
                         </button>
 
                         <button className="league-button">
-                            <img src={leagueLogos['세리에 A']} alt="세리에 A 로고" className="league-logo" />
-                            <span>　{texts.serieA}</span>
+                            <img src={leagueLogos['WK리그']} alt="WK리그" className="league-logo" />
+                            <span>　{texts.WKLeague}</span>
                         </button>
                     </div>
 
-                    <h4><span style={{ color: '#619DFF' }}>{texts.season}</span></h4>
+                    <h4><span style={{ color: '#619DFF' }}>2024 {texts.season}</span></h4>
                     <table className="record-table">
                         <thead>
                             <tr>

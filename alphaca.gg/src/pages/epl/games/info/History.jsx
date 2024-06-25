@@ -91,12 +91,12 @@ function History({ homeTeamName, awayTeamName }) {
                     <div className="team-stats">
                         <div className="team-info">
                             <div className="home-team">{homeTeamName}<br />
-                                <span style={{ color: '#E56B81' }}>{matchingTeams[0].rank}{getText('tier')} · </span>
+                                <span style={{ color: '#5F9FDE' }}>{matchingTeams[0].rank}{getText('tier')} · </span>
                                 <span style={{ color: '#919192', fontWeight: 'lighter', fontSize: '15px' }}>{matchingTeams[0].matchesWon}{getText('matchResults.W')} {matchingTeams[0].matchesDrawn}{getText('matchResults.D')} {matchingTeams[0].matchesLost}{getText('matchResults.L')}</span>
                             </div>
                             <div className="vs-text">vs</div>
                             <div className="away-team">{awayTeamName}<br />
-                                <span style={{ color: '#E56B81' }}>{matchingTeams[1].rank}{getText('tier')} · </span>
+                                <span style={{ color: '#5F9FDE' }}>{matchingTeams[1].rank}{getText('tier')} · </span>
                                 <span style={{ color: '#919192', fontWeight: 'lighter', fontSize: '15px' }}>{matchingTeams[1].matchesWon}{getText('matchResults.W')} {matchingTeams[1].matchesDrawn}{getText('matchResults.D')} {matchingTeams[1].matchesLost}{getText('matchResults.L')}</span>
                             </div>
                         </div>

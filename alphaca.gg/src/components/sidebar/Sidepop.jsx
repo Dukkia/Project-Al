@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Sidepop.css';
 import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Logo from './../../assets/images/Twitch-Logo.png';
+import Logo from './../../assets/images/MDS_Logo.png';
 import languageTexts from '../../utils/navbarTexts';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../utils/LanguageContext'; // LanguageContext에서 useLanguage 가져오기

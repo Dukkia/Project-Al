@@ -10,13 +10,13 @@ import Sidebar from './components/sidebar/Sidebar';
 import Sidepop from './components/sidebar/Sidepop';
 
 import Home from './pages/Home';
-import Record from './pages/EPL/Record';
-import Schedule from './pages/EPL/Schedule';
-import GameData from './pages/EPL/GameData';
+import Record from './pages/epl/Record';
+import Schedule from './pages/epl/Schedule';
+import GameData from './pages/epl/GameData';
 
-import KRecord from './pages/K-League/Record';
-import KSchedule from './pages/K-League/Schedule';
-import KGameData from './pages/K-League/GameData';
+import KRecord from './pages/k_league/Record';
+import KSchedule from './pages/k_league/Schedule';
+import KGameData from './pages/k_league/GameData';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);

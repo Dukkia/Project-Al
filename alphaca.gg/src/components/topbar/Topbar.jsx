@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../../utils/LanguageContext'; // LanguageContext에서 커스텀 훅 import
 import './Topbar.css';
 
-import Logo from './../../assets/images/Twitch-Logo.png';
+import Logo from './../../assets/images/MDS_Logo.png';
 
 function Topbar({ toggleDarkMode, darkMode }) {
   const { selectedLanguage, changeLanguage } = useLanguage(); // LanguageContext에서 언어 상태와 변경 함수 가져오기

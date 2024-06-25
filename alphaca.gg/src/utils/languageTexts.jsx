@@ -5,7 +5,7 @@ const languageTexts = {
     bundesliga: '분데스리가',
     serieA: '세리에 A',
     ligue1: '리그 1',
-    season: '2023/24 시즌 팀 순위',
+    season: '시즌 팀 순위',
     rank: '순위',
     tier: '위',
     team: '팀',
@@ -49,7 +49,11 @@ const languageTexts = {
     Name: '이름',
     Expected_Goals: '기대득점',
     Expected_Goals_Conceded: '기대실점',
-    Total: '합'
+    Total: '합',
+    kLeague1: 'K리그 1',
+    kLeague2: 'K리그 2',
+    kLeague3: 'K3리그',
+    WKLeague: 'WK리그'
   },
   ja: {
     premierLeague: 'プレミアリーグ',
@@ -57,7 +61,7 @@ const languageTexts = {
     bundesliga: 'ブンデスリーガ',
     serieA: 'セリエ A',
     ligue1: 'リーグ 1',
-    season: '2023/24 シーズン チーム順位',
+    season: 'シーズン チーム順位',
     rank: '順位',
     tier: '位',
     team: 'チーム',
@@ -101,7 +105,11 @@ const languageTexts = {
     Name: '名前',
     Expected_Goals: '期待得点',
     Expected_Goals_Conceded: '期待失点',
-    Total: '合計'
+    Total: '合計',
+    kLeague1: 'Kリーグ 1',
+    kLeague2: 'Kリーグ 2',
+    kLeague3: 'K3リーグ',
+    WKLeague: 'WKリーグ'
   },
   en: {
     premierLeague: 'Premier League',
@@ -109,7 +117,7 @@ const languageTexts = {
     bundesliga: 'Bundesliga',
     serieA: 'Serie A',
     ligue1: 'Ligue 1',
-    season: '2023/24 Season Team Standings',
+    season: 'Season Team Standings',
     rank: 'Rank',
     tier: 'tier',
     team: 'Team',
@@ -153,7 +161,11 @@ const languageTexts = {
     Name: 'Name',
     Expected_Goals: 'Expected Goals',
     Expected_Goals_Conceded: 'Expected Goals Conceded',
-    Total: 'Total'
+    Total: 'Total',
+    kLeague1: 'K League 1',
+    kLeague2: 'K League 2',
+    kLeague3: 'K3 League',
+    WKLeague: 'WK League'
   }
 };
 

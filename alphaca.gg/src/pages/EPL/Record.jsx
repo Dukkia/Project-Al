@@ -50,6 +50,23 @@ function Record() {
 
     const texts = languageTexts[selectedLanguage] || {};
 
+    // CSS 스타일을 객체로 정의
+    const championsLeagueStyle = {
+        borderLeft: '4px solid #4285F4'
+    };
+
+    const europaLeagueStyle = {
+        borderLeft: '4px solid #FA7B17'
+    };
+
+    const conferenceLeagueStyle = {
+        borderLeft: '4px solid #00D26A'
+    };
+
+    const relegationStyle = {
+        borderLeft: '4px solid #EA4335'
+    };
+
     return (
         <div className="schedule-container">
             {loading ? (
@@ -82,7 +99,7 @@ function Record() {
                         </button>
                     </div>
 
-                    <h4><span style={{ color: '#619DFF' }}>{texts.season}</span></h4>
+                    <h4><span style={{ color: '#619DFF' }}>2023/24 {texts.season}</span></h4>
                     <table className="record-table">
                         <thead>
                             <tr>
@@ -99,8 +116,15 @@ function Record() {
                             </tr>
                         </thead>
                         <tbody>
-                            {standings.map(team => (
-                                <tr key={team.contestantId}>
+                            {standings.map((team, index) => (
+                                <tr key={team.contestantId} style={
+                                    // 조건에 따라 스타일 객체 선택
+                                    index < 4 ? championsLeagueStyle :
+                                    index === 4 ? europaLeagueStyle :
+                                    index === 5 ? conferenceLeagueStyle :
+                                    index >= 17 ? relegationStyle :
+                                    {}
+                                }>
                                     <td>{team.rank}</td>
                                     <td className="team-logo">
                                         <img src={teamLogos[team.contestantClubName]} alt="team logo" />

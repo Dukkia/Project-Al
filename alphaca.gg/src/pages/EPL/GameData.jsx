@@ -7,10 +7,10 @@ import SportsSoccerRoundedIcon from '@mui/icons-material/SportsSoccerRounded';
 import languageTexts from '../../utils/languageTexts';
 import Lineups from './games/Lineups';
 import Messages from './games/Messages';
-import History from './games/power/History';
-import Battle from './games/power/Battle';
-import Player from './games/power/Player';
-import Power from './games/power/Power';
+import History from './games/info/History';
+import Battle from './games/info/Battle';
+import Player from './games/info/Player';
+import Power from './games/info/Power';
 import { useLanguage } from '../../utils/LanguageContext';
 
 function GameData() {

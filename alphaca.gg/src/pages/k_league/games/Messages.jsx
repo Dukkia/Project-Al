@@ -29,16 +29,16 @@ function Messages() {
             let port;
             switch (selectedLanguage) {
                 case 'ko':
-                    port = 8220;
+                    port = 2182;
                     break;
                 case 'ja':
-                    port = 8120;
+                    port = 2181;
                     break;
                 case 'en':
-                    port = 2020;
+                    port = 2144;
                     break;
                 default:
-                    port = 2020;
+                    port = 2182;
             }
 
             try {
