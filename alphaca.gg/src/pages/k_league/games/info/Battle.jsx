@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Battle.css'; // 스타일을 위한 CSS 파일
-import { useLanguage } from '../../utils/LanguageContext'; // Adjust the import path based on your project structure
-import languageTexts from '../../utils/languageTexts'; // Adjust the import path based on your project structure
+import { useLanguage } from '../../../../utils/LanguageContext'; // Adjust the import path based on your project structure
+import languageTexts from '../../../../utils/languageTexts'; // Adjust the import path based on your project structure
 
 const Battle = ({ homeTeamName, awayTeamName, homeTeamId, awayTeamId }) => {
   const { selectedLanguage } = useLanguage(); // Access selectedLanguage from LanguageContext
