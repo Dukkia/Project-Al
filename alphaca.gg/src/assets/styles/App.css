@@ -1,0 +1,25 @@
+@import './Variables.css';
+
+.main-contents {
+  display: flex;
+  justify-content: center;
+
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+}
+
+.dark-mode {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.light-mode {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

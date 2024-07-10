@@ -1,0 +1,129 @@
+@import '../../assets/styles/Variables.css';
+
+/* 컨테이너 스타일 */
+.schedule-container {
+    margin: 80px;
+}
+
+
+/* -----------------리그 버튼 css----------------- */
+/* 버튼 컨테이너 스타일 */
+.box-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* 리그 버튼 스타일 */
+.league-button {
+    display: flex;
+    justify-content: center;
+    /* 가로 가운데 정렬 */
+    align-items: center;
+    /* 세로 가운데 정렬 */
+    width: 200px;
+    height: 55px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    color: var(--color);
+
+}
+
+/* 라이트모드 리그 버튼 효과 */
+.light-mode .league-button {
+    color: var(--color);
+    background-color: #F7F7F9;
+    border: 1px solid #B4B5C0;
+}
+
+/* 호버 시 색상 변경 */
+.light-mode .league-button:hover {
+    background-color: #ccc;
+
+}
+
+/* 다크 모드 리그 버튼 효과 */
+.dark-mode .league-button {
+    background-color: #303134;
+    color: #FFFFFF;
+    border: 1px solid #575757;
+}
+
+/* 호버 시 색상 변경 */
+.dark-mode .league-button:hover {
+    background-color: #252527;
+}
+
+
+
+/* -----------------팀 순위 테이블 css----------------- */
+/* 테이블 스타일 */
+.record-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 1000px;
+    color: var(--color);
+}
+
+/* 테이블 헤더 스타일 */
+thead {
+    background-color: var(--background-color);
+    text-align: left;
+    /* 팀 열을 왼쪽 정렬 */
+}
+
+/* 테이블 내의 모든 행 스타일 */
+tbody tr {
+    background-color: var(--background-color);
+    border-top: 0.1px solid #575757;
+}
+
+/* 팀 열을 제외한 테이블 셀 스타일 */
+td:not(:nth-child(2)),
+th:not(:nth-child(2)) {
+    padding: 10px;
+    text-align: center;
+    /* 테이블 내용 가운데 정렬 */
+}
+
+/* 팀 로고 스타일 */
+.team-logo {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    /* 상하 가운데 정렬 */
+}
+
+.team-logo img {
+    margin-right: 5px;
+    width: 7%;
+    vertical-align: middle;
+    /* 수직 정렬을 중간으로 설정 */
+    position: relative;
+    /* 상대적 위치 조정 가능 */
+    top: 1px;
+    /* 이미지를 위로 1픽셀 이동 */
+    /* 로고와 팀 이름 사이의 간격 조정 */
+}
+
+/* 라이트모드 호버 효과 */
+.light-mode tbody tr:hover {
+    background-color: #ccc;
+}
+
+/* 다크모드 호버 효과 */
+.dark-mode tbody tr:hover {
+    background-color: #252527;
+}
+
+/* -----------------로딩 스피너 위치----------------- */
+.record-loading {
+    margin-top: 20px;
+}
