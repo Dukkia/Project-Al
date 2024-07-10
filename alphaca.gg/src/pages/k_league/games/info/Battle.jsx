@@ -41,7 +41,7 @@ const Battle = ({ homeTeamName, awayTeamName, homeTeamId, awayTeamId }) => {
   return (
     <div className="battle-container">
       <div className="battle-info">
-        {texts.recentMeetings}
+        <span style={{ fontSize: '18px' }}>{texts.recentMeetings}</span>
         <div className="matches-grid">
           {matches.map((match, index) => (
             <div key={index} className="grid-row">
