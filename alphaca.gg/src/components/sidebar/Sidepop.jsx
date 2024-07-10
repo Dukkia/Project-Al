@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Sidepop.css';
 import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Logo from './../../assets/images/MDS_Logo.png';
 import languageTexts from '../../utils/navbarTexts';
 import { useNavigate } from 'react-router-dom';
-import { useLanguage } from '../../utils/LanguageContext'; // LanguageContext에서 useLanguage 가져오기
+import { useLanguage } from '../../utils/LanguageContext';
 
 function Sidepop({ isOpen, togglePopup }) {
   const [showOverseasSubMenu, setShowOverseasSubMenu] = useState(false);
   const [showDomesticSubMenu, setShowDomesticSubMenu] = useState(false);
   const navigate = useNavigate();
-  const { selectedLanguage } = useLanguage(); // LanguageContext에서 선택된 언어 가져오기
+  const { selectedLanguage } = useLanguage();
 
   const handleOverseasClick = () => {
     setShowOverseasSubMenu(!showOverseasSubMenu);
@@ -27,28 +27,43 @@ function Sidepop({ isOpen, togglePopup }) {
 
   const handleHomeButtonClick = () => {
     navigate(`/${selectedLanguage}`);
-    togglePopup(); // 팝업 닫기
+    togglePopup();
   };
 
   const handleScheduleButtonClick = () => {
     navigate(`/${selectedLanguage}/schedule`);
-    togglePopup(); // 팝업 닫기
+    togglePopup();
   };
 
   const handleRankingButtonClick = () => {
     navigate(`/${selectedLanguage}/record`);
-    togglePopup(); // 팝업 닫기
+    togglePopup();
   };
 
   const handleKScheduleButtonClick = () => {
     navigate(`/${selectedLanguage}/kschedule`);
-    togglePopup(); // 팝업 닫기
+    togglePopup();
   };
 
   const handleKRankingButtonClick = () => {
     navigate(`/${selectedLanguage}/krecord`);
-    togglePopup(); // 팝업 닫기
+    togglePopup();
   };
+
+  useEffect(() => {
+    const sidepopMenu = document.querySelector('.sidepop-menu');
+    const preventScroll = (e) => e.preventDefault();
+
+    if (sidepopMenu) {
+      sidepopMenu.addEventListener('wheel', preventScroll);
+    }
+
+    return () => {
+      if (sidepopMenu) {
+        sidepopMenu.removeEventListener('wheel', preventScroll);
+      }
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
