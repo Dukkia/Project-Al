@@ -162,6 +162,8 @@ function GameData() {
               <Battle
                 homeTeamName={homeTeam.name}
                 awayTeamName={awayTeam.name}
+                homeTeamId={homeTeam.id}
+                awayTeamId={awayTeam.id}
                 texts={texts}
               />
               <Power
