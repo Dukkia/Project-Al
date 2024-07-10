@@ -44,15 +44,27 @@ function Lineups({ homeTeamName, awayTeamName, homeLineup, awayLineup, texts }) 
         // 포지션 순서에 맞게 선수들을 출력
         const positionOrder = isHomeTeam ? homePositionOrder : awayPositionOrder;
 
+        // 항상 5줄로 출력되게 설정
+        const formationRows = [];
+
+        positionOrder.forEach(position => {
+            if (positions[position].length > 0) {
+                formationRows.push(
+                    <div key={position} className={`formation-row ${position.toLowerCase()}`}>
+                        {positions[position].map(player => renderPlayer(player, isHomeTeam))}
+                    </div>
+                );
+            }
+        });
+
+        // 필요한 공백 줄 추가
+        while (formationRows.length < 5) {
+            formationRows.unshift(<div key={`empty-${formationRows.length}`} className="formation-row empty"></div>);
+        }
+
         return (
             <div className={`formation ${isHomeTeam ? 'home-formation' : 'away-formation'}`}>
-                {positionOrder.map(position => (
-                    positions[position].length > 0 && (
-                        <div key={position} className={`formation-row ${position.toLowerCase()}`}>
-                            {positions[position].map(player => renderPlayer(player, isHomeTeam))}
-                        </div>
-                    )
-                ))}
+                {formationRows}
             </div>
         );
     };
@@ -69,7 +81,7 @@ function Lineups({ homeTeamName, awayTeamName, homeLineup, awayLineup, texts }) 
                 </div>
             </div>
             <h3 style={{ textAlign: 'center' }}>{awayTeamName}</h3> {/* 가운데 정렬 */}
-        </div >
+        </div>
     );
 }
 

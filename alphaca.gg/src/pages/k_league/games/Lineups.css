@@ -25,7 +25,7 @@
 
 .player {
     text-align: center;
-    margin-top: 7.5px;
+    margin-top: 2px;
 }
 
 .circle {
@@ -62,25 +62,21 @@
     background-position: center;
     /* 이미지를 가운데 정렬 */
     ;
-    width: 450px;
+    width: 600px;
     /* 원하는 너비 설정 */
-    height: 627px;
+    height: 836px;
     /* 원하는 높이 설정 */
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .home-team-lineup {
-    height: 313.5px;
+    height: 418px;
     /* 원하는 높이 설정 */
-    overflow-y: auto;
-    /* 내용이 넘칠 경우 수직 스크롤바 표시 */
 }
 
 .away-team-lineup {
-    height: 313.5px;
+    height: 418px;
     /* 원하는 높이 설정 */
-    overflow-y: auto;
-    /* 내용이 넘칠 경우 수직 스크롤바 표시 */
 }
 
 .player.home-team .circle {

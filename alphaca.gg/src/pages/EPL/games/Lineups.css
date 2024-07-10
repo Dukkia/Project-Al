@@ -42,8 +42,8 @@
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* 약간의 그림자 추가 */
-    margin-right: 40px;
-    margin-left: 40px;
+    margin-right: 5px; /* 간격 줄이기 */
+    margin-left: 5px;  /* 간격 줄이기 */
 }
 
 .shirt-number {
@@ -61,7 +61,6 @@
     /* 이미지를 컨테이너에 맞게 조정 */
     background-position: center;
     /* 이미지를 가운데 정렬 */
-    ;
     width: 450px;
     /* 원하는 너비 설정 */
     height: 627px;
@@ -70,17 +69,13 @@
 }
 
 .home-team-lineup {
-    height: 313.5px;
+    height: 418px;
     /* 원하는 높이 설정 */
-    overflow-y: auto;
-    /* 내용이 넘칠 경우 수직 스크롤바 표시 */
 }
 
 .away-team-lineup {
-    height: 313.5px;
+    height: 418px;
     /* 원하는 높이 설정 */
-    overflow-y: auto;
-    /* 내용이 넘칠 경우 수직 스크롤바 표시 */
 }
 
 .player.home-team .circle {

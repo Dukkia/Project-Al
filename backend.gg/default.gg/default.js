@@ -1,6 +1,6 @@
 const { execFile } = require('child_process');
 
-const files = ['home.js', 'matchId.js', 'message.js', 'player.js'];
+const files = ['matchId.js', 'message.js', 'player.js', 'recent.js'];
 
 files.forEach(file => {
   execFile('node', [file], (error, stdout, stderr) => {
