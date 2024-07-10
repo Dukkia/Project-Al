@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Battle.css'; // 스타일을 위한 CSS 파일
+import { useLanguage } from '../../utils/LanguageContext'; // Adjust the import path based on your project structure
+import languageTexts from '../../utils/languageTexts'; // Adjust the import path based on your project structure
 
-const Battle = ({ homeTeamName, awayTeamName, texts, homeTeamId, awayTeamId }) => {
+const Battle = ({ homeTeamName, awayTeamName, homeTeamId, awayTeamId }) => {
+  const { selectedLanguage } = useLanguage(); // Access selectedLanguage from LanguageContext
+  const texts = languageTexts[selectedLanguage]; // Get texts based on selected language
+
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
@@ -36,7 +41,7 @@ const Battle = ({ homeTeamName, awayTeamName, texts, homeTeamId, awayTeamId }) =
   return (
     <div className="battle-container">
       <div className="battle-info">
-        최근 양팀 맞대결
+        {texts.recentMeetings}
         <div className="matches-grid">
           {matches.map((match, index) => (
             <div key={index} className="grid-row">

@@ -53,7 +53,8 @@ const languageTexts = {
     kLeague1: 'K리그 1',
     kLeague2: 'K리그 2',
     kLeague3: 'K3리그',
-    WKLeague: 'WK리그'
+    WKLeague: 'WK리그',
+    recentMeetings: '최근 양팀 맞대결'
   },
   ja: {
     premierLeague: 'プレミアリーグ',
@@ -109,7 +110,8 @@ const languageTexts = {
     kLeague1: 'Kリーグ 1',
     kLeague2: 'Kリーグ 2',
     kLeague3: 'K3リーグ',
-    WKLeague: 'WKリーグ'
+    WKLeague: 'WKリーグ',
+    recentMeetings: '最近両チームの対決'
   },
   en: {
     premierLeague: 'Premier League',
@@ -165,7 +167,8 @@ const languageTexts = {
     kLeague1: 'K League 1',
     kLeague2: 'K League 2',
     kLeague3: 'K3 League',
-    WKLeague: 'WK League'
+    WKLeague: 'WK League',
+    recentMeetings: 'Recent Meetings'
   }
 };
 
