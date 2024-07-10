@@ -10,7 +10,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import Sidepop from './components/sidebar/Sidepop';
 
 import Home from './pages/Home';
-import Record from '../src/pages/epl/Record';
+import Record from './pages/epl/Record';
 import Schedule from './pages/epl/Schedule';
 import GameData from './pages/epl/GameData';
 
